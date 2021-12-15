@@ -1,0 +1,181 @@
+---
+title: "GIS Data Solution"
+author: "Alicia R. Chen"
+date: "6/1/2021"
+output: 
+  pdf_document:
+    latex_engine: xelatex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+knitr::opts_knit$set(root.dir = "~/Dropbox (ESOC - Princeton)/Predoc Training/Course Materials/4. GIS Data Exercise")
+
+```
+
+```{r}
+packages <- c("lubridate", "data.table", "rgdal", "rgeos", "data.table",
+              "dplyr", "readr", "ggplot2", "tools", "RColorBrewer", "grid")
+lapply(packages, library, character.only = TRUE)
+```
+
+```{r}
+# load data
+df <- fread("./all_flow_classes.csv")
+
+# examine types of Chinese investments included:
+df %>% group_by(flow_class) %>% summarise(n())
+
+# load project descriptions
+desc <- fread("./project_descriptions_and_sources.csv")
+
+# merge by project_id
+final_df <- plyr::join(df, desc, by = 'project_id')
+final_df <- final_df[!(is.na(final_df$latitude)==TRUE),]
+```
+
+### Q1
+
+```{r}
+world_map <- map_data("world")
+
+ggplot() + 
+  geom_polygon(data = world_map, 
+               aes(x=long, y = lat, group = group)) +
+  coord_fixed(1.3)
+
+#remove Antarctica 
+world_map <- world_map[world_map$region!="Antarctica",]
+ggplot() + 
+  geom_polygon(data = world_map, 
+               aes(x=long, y = lat, group = group)) +
+  coord_fixed(1.3)
+
+# plot Chinese investments
+ggplot() + 
+  geom_polygon(data = world_map, 
+               aes(x=long, y = lat, group = group), 
+               fill='gray90', size=0.2, color='white') +
+  coord_fixed(1.3) +
+  theme_void() +
+  geom_point(data = final_df, 
+             aes(x=longitude,y=latitude), 
+             color='blue',alpha=0.2, size=0.3)
+```
+
+There are lots of ways to play around with visualizing this data. One example is this:
+```{r}
+# some projects have multiple recipients
+# split this data such that each row is one recipient
+final_df %>%
+  group_by(recipients) %>%
+  summarize(n = n())
+
+by_recipient <- splitstackshape::cSplit(final_df, "recipients", sep="|", "long")
+by_recipient <- by_recipient[by_recipient$recipients != "Africa, regional",]
+
+# calculate number of projects per country
+by_recipient <- by_recipient %>% count(recipients)
+colnames(by_recipient) <- c('region', 'n_projects')
+
+# merge with world map
+merged <- inner_join(world_map, by_recipient, by = "region")
+
+ggplot() + 
+  geom_polygon(data = merged, 
+               aes(x=long, y = lat, group = group, fill=n_projects), 
+               size=0.2, color='white') +
+  coord_fixed(1.3) +
+  theme_void() +
+  viridis::scale_fill_viridis()
+
+```
+
+```{r}
+# different kinds of projects 
+ggplot() + 
+  geom_polygon(data = world_map, 
+               aes(x=long, y = lat, group = group), 
+               fill='gray90', size=0.2, color='white') +
+  coord_fixed(1.3) +
+  theme_void() +
+  geom_point(data = final_df, 
+             aes(x=longitude,y=latitude, color = ad_sector_names), 
+             alpha=0.2, size=0.3) + 
+  theme(legend.position =  "bottom") + 
+  theme(legend.text = element_text(size=6) )
+  
+```
+
+```{r}
+#  monetary amount of these projects
+
+# calculate amount of projects per country
+
+# some projects have multiple recipients
+# split this data such that each row is one recipient
+
+
+by_recipient <- splitstackshape::cSplit(final_df, "recipients", sep="|", "long")
+by_recipient <- by_recipient[by_recipient$recipients != "Africa, regional",]
+
+df_amount <- by_recipient %>%
+  group_by(recipients) %>%
+  summarize(total_amount = sum(amount)) 
+
+colnames(df_amount) <- c("region", "total_amount")
+
+merged <- inner_join(world_map, df_amount, by = "region")
+
+ggplot() + 
+  geom_polygon(data = merged, 
+               aes(x=long, y = lat, group = group, fill=total_amount), 
+               size=0.2, color='white') +
+  coord_fixed(1.3) +
+  theme_void() +
+  viridis::scale_fill_viridis()
+
+```
+
+### Q2
+```{r}
+
+ph <- readRDS("../../Solutions (NOT FOR FELLOWS)/gadm36_PHL_1_sf.rds")
+
+# get projects in philippines
+ph_projects <- final_df[grepl("Philippines", final_df$recipients)==TRUE,]
+
+ggplot() +
+  geom_sf(data = ph) +
+  geom_point(ph_projects, 
+             mapping=aes(x=longitude,y=latitude), color='blue',size=1) +
+  coord_sf() 
+
+```
+
+### Q3
+
+```{r}
+#my_key <- "YOUR OWN KEY"
+library(ggmap)
+register_google(key = my_key)
+
+jakarta_coord <- geocode(location = "Jakarta", output = "more", source = "google")
+id_projects <- final_df[grepl("Indonesia", final_df$recipients)==TRUE,]
+id_projects$jak_lon <- jakarta_coord$lon
+id_projects$jak_lat <- jakarta_coord$lat
+
+id_projects$distance<-geosphere::distHaversine(id_projects[,c("longitude", "latitude")], 
+                                               id_projects[,c("jak_lon", "jak_lat")])
+id_projects$distance_in_miles <- id_projects$distance / 1609
+
+summary(id_projects$distance_in_miles)
+
+```
+
+```{r}
+library(sf)
+library(raster)
+
+```
+

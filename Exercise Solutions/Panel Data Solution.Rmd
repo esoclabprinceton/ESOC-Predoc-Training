@@ -1,0 +1,205 @@
+---
+title: "Panel Data Solution"
+author: "Alicia R. Chen"
+date: "6/2/2021"
+output: 
+  pdf_document:
+    latex_engine: xelatex
+---
+
+```{r setup, include=FALSE}
+rm(list = ls())
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+knitr::opts_knit$set(root.dir = "/Users/sunyining/Dropbox (ESOC - Princeton)/Predoc Training/Course Materials/")
+```
+
+### Exercise 1
+
+```{r}
+packages <- c("tidyverse","data.table", "lubridate", 'ggplot2')
+lapply(packages, library, character.only = TRUE)
+```
+
+```{r}
+# load data
+df <- fread("./2. Text-as-Data Exercise/ira_tweets_csv_hashed.csv", fill=TRUE)
+
+# make panel
+df$blm_tweet <- as.numeric(str_detect(df$tweet_text, regex('Black Lives Matter|BLM', ignore_case = T)))
+df$Date <- as.Date(df$tweet_time)
+panel <- df %>%
+  group_by(Date) %>%
+  summarise(tweet_count = n(),
+            quote_count = mean(quote_count),
+            reply_count = mean(reply_count),
+            retweet_count = mean(retweet_count),
+            like_count = mean(like_count),
+            blm_count = sum(blm_tweet))
+
+# balance panel
+panel_balanced <- right_join(panel, data.frame(Date = seq(min(df$Date), max(df$Date), "day")))
+panel_balanced[is.na(panel_balanced)] <- 0
+panel_balanced <- panel_balanced[order(panel_balanced$Date),]
+
+# number of obs:
+cat("Total days in panel:", nrow(panel_balanced))
+```
+
+```{r}
+events <- data.frame(event_date = c("2015-08-19", "2015-07-13", "2016-07-05"))
+events$event_date <- as.Date(events$event_date)
+
+# create function to loop over each event:
+time_window <- 30
+for(i in 1:3){
+  
+  # set event date
+  event_date <- events$event_date[i]
+  
+  # subset by if date is within 14 days of event
+  ddf <- panel_balanced
+  ddf$diff <- ddf$Date - event_date
+  ddf$window <- ifelse(((ddf$diff < time_window)&(ddf$diff >= -time_window)), 1,0)
+  ddf <- filter(ddf, window == 1)
+  
+  # add the needed variables to run our model:
+  ddf$T <- 1:nrow(ddf)
+  ddf$X <- ifelse(ddf$diff >= 0,1,0)
+  ddf$XT <- ifelse(ddf$diff >= 0, 1:nrow(ddf)/2, 0)
+  
+  # loop over every variable
+  # and print summary
+  
+  for(x in 2:7){
+    model <- lm(paste(colnames(ddf)[x], " ~ T + X + XT"), data=ddf) 
+    print(paste(colnames(ddf)[x]))
+    print(summary(model)) 
+  }
+  
+}
+```
+
+### Exercise #2
+
+```{r}
+# Load violence and reconstruction spending data
+violence <- readstata13::read.dta13("./3. Panel Data Exercise/ESOC-I_Replication_V2/sigact_dist_month_0408.dta")
+cerp <- readstata13::read.dta13("./3. Panel Data Exercise/ESOC-I_Replication_V2/CERP_dist_month_0308_HAM.dta")
+
+# Load population data
+pop <- readstata13::read.dta13("./3. Panel Data Exercise/ESOC-I_Replication_V2/population_HAM.dta")
+pop <- select(pop, District = district, Governorate = governorate, year, pop)
+
+# Note that there are some mistakes with the assignment
+# of district to governorate in the violence data. 
+# For example, Afaq is assigned to both Baghdad and Qadissiya. 
+# This is an issue also in the CERP data, which has lots of
+# missing governorates per district. 
+# Population data is the most complete and from WFP so let's use that
+districts <- unique(pop[,c('District', 'Governorate')])
+
+# Delete the Governorate column from violence and cerp datasets
+violence <- select(violence, -Governorate)
+cerp <- select(cerp, -Governorate)
+
+# Merge them together at the district-half year level
+colnames(violence)
+colnames(cerp)
+colnames(violence)[2] <- "monthyr"
+
+df <- full_join(cerp, violence) # Note that you will need to full join as there are missing districts in both
+df$SIG_1[is.na(df$SIG_1)] <- 0 # Don't forget to fill in violence data as 0 for Choman
+df$MONTH2 = ymd("1960-01-01") + months(df$monthyr) # Convert stata months
+# Create half-year variable
+df$halfyr <- ifelse(month(df$MONTH2) >= 7, 
+                    paste0(year(df$MONTH2),"h2"),
+                    paste0(year(df$MONTH2),"h1"))
+df <- df %>%
+  plyr::join(., districts) %>%
+  filter(year(MONTH2) >= 2004, year(MONTH2) <= 2008) %>%
+  group_by(District, Governorate, halfyr) %>%
+  summarise(ms_c = sum(ms_c),
+            SIG_1 = sum(SIG_1)) %>%
+  mutate(year = as.numeric(substr(halfyr, start=1, stop=4)),
+         half = as.numeric(substr(halfyr, start=6, stop=6)))
+
+# Create per capita (1000 pop.) measures
+df <- merge(df, pop, by = c("District", "Governorate", "year"), all.x = T)
+
+df$p_S1 <- df$SIG_1 / df$pop*1000
+df$p_ms_c <- df$ms_c / df$pop
+
+cat("Number of districts: ", length(unique(df$District)))
+cat("Number of half-years: ", length(unique(df$halfyr)))
+cat("Number of observations: ", nrow(df))
+```
+
+```{r}
+# base model
+mod1 <- lm(p_S1 ~ p_ms_c, df, weights=pop)
+lmtest::coeftest(mod1, sandwich::vcovCL(mod1, type="HC1", cluster = ~District))
+```
+
+```{r}
+### adding control vars
+
+# sunni & shia vote shares:
+elections <- readstata13::read.dta13("./3. Panel Data Exercise/ESOC-I_Replication_V2/Dec_2005_Vote_Data.dta")
+df <- plyr::join(df, elections[,c("Governorate", "su_v", "sh_v")])
+
+# unemployment rate:
+econ <- readstata13::read.dta13("./3. Panel Data Exercise/ESOC-I_Replication_V2/econfactors_HAM.dta")
+colnames(econ)[1] <- "District"
+df <- plyr::join(df, econ[,c("District", "year", "urate_2008")])
+
+# income variables:
+econ$b2_prop <- econ$hhinc_i1_2008 + econ$hhinc_i2_2008
+df <- plyr::join(df, econ[,c("District", "year", "b2_prop")])
+
+# mean change in HHI quintiles between 2002 and 2004:
+community <- readstata13::read.dta13("./3. Panel Data Exercise/ESOC-I_Replication_V2/ILCS_district.dta")
+df <- plyr::join(df, community[,c("District", 'dif_02_04_qcap')])
+
+# with basic controls
+mod2 <- lm(p_S1 ~ p_ms_c + su_v + sh_v + urate_2008 + dif_02_04_qcap + b2_prop, df, weights=pop)
+lmtest::coeftest(mod2, sandwich::vcovCL(mod2, type="HC1", cluster = ~District))
+
+```
+
+```{r}
+# with time controls
+df <- fastDummies::dummy_cols(df, "year")
+df$year_2005_su_v <- df$year_2005 * df$su_v
+df$year_2006_su_v <- df$year_2006 * df$su_v
+df$year_2007_su_v <- df$year_2007 * df$su_v
+df$year_2008_su_v <- df$year_2008 * df$su_v
+
+mod3 <- lm(p_S1 ~ p_ms_c + su_v + sh_v + urate_2008 + dif_02_04_qcap + b2_prop + year + year * su_v, df, weights=pop)
+lmtest::coeftest(mod3, sandwich::vcovCL(mod3, type="HC1", cluster = ~District))
+
+```
+
+```{r}
+# create FD:
+df <- df[order(df$District, df$year, df$half),]
+df <- df %>%
+  group_by(District) %>%
+  mutate(d.p_S1 = p_S1 - lag(p_S1),
+         d.p_ms_c = p_ms_c - lag(p_ms_c))
+
+mod4 <- lm(d.p_S1 ~ d.p_ms_c + year_2005 + year_2006 + year_2007 + year_2008 +
+             year_2005_su_v + year_2006_su_v + year_2007_su_v + year_2008_su_v, df, weights=pop)
+lmtest::coeftest(mod4, sandwich::vcovCL(mod4, type="HC1", cluster = ~District))
+
+# control for pre-existing trends:
+df <- df %>%
+  group_by(District) %>%
+  mutate(l1_p_S1 = lag(p_S1),
+         l2_p_S1 = lag(l1_p_S1),
+         ld.p_S1 = l1_p_S1 - l2_p_S1)
+  
+mod5 <- lm(d.p_S1 ~ d.p_ms_c + ld.p_S1 + year_2005 + year_2006 + year_2007 + year_2008 +
+             year_2005_su_v + year_2006_su_v + year_2007_su_v + year_2008_su_v, df, weights=pop)
+lmtest::coeftest(mod5, sandwich::vcovCL(mod5, type="HC1", cluster = ~District))
+
+```

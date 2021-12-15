@@ -1,0 +1,171 @@
+---
+title: "Text-as-Data Exercise Solutions"
+author: "Alicia R. Chen"
+date: "5/28/2021"
+output: 
+  pdf_document:
+    latex_engine: xelatex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+knitr::opts_knit$set(root.dir = "/Users/aliciarchen/Dropbox (ESOC - Princeton)/FDR Predoctoral Training/Course Materials/2. Text-as-Data Exercise")
+```
+
+```{r}
+packages <- c("tidyverse","data.table", "lubridate", 'ggplot2', "quanteda", "RColorBrewer")
+lapply(packages, library, character.only = TRUE)
+```
+
+### Q1
+
+```{r}
+df <- fread("./ira_tweets_csv_hashed.csv", fill=TRUE)
+```
+
+```{r}
+cat("Total tweets:", nrow(df))
+cat("English tweets:", nrow(df[df$tweet_language=="en",]), "Non-English tweets:", nrow(df[df$tweet_language!="en",]))
+cat("Self-reported locations:", nrow(df[df$user_reported_location != ""]))
+cat("Contains BLM keywords:", sum(str_detect(df$tweet_text, regex('Black Lives Matter|BLM', ignore_case = T))))
+cat("Mentions Sputnik or RT:", sum(str_detect(df$tweet_text, "@SputnikInt|@RT_com")))
+```
+
+### Q2 Creating DTM
+
+One thing to consider when working with Twitter data is removing emojis, links, mentions etc. (depending on your use case). Also removing the RT: text which just shows that it's a retweet and is not useful to include
+
+```{r}
+# only English tweets
+df <- df[df$tweet_language=="en",]
+df$Date <- as.Date(df$tweet_time)
+
+# function to remove capitalization, punctuation, and special characters and numbers & apply Porter Stemmer
+tweetclean <- function(i){
+  text <- i
+  text <- gsub("RT", "", text)
+  # cleaning
+  text <- tolower(text) #convert to lowercase
+  
+  text <- gsub("https\\S*|http\\S*", "", text) #remove URLs
+  text <- gsub("pic.twitter\\S*", "", text) #remove picture links
+  text <- gsub("[^\x01-\x7F]", " ", text) #remove emojis
+  #text <- gsub("\\b\\d+\\b", "", text) #remove standalone numbers
+  text <- gsub("[[:digit:]]+", "", text) #remove all numbers
+  text <- gsub("@\\w+ *", "", text) #remove mentions
+  text <- gsub ("#\\w+ *", "", text) # remove hashtags
+  text <- gsub("&amp", "", text) # remove & from html
+  text <- gsub("[[:punct:] ]+", " ", text) # remove all punctuation
+  
+  # Porter stemmer
+  text <- SnowballC::wordStem(text)
+  
+  text
+}
+df$tweet_text_cleaned <- tweetclean(df$tweet_text)
+
+# remove stopwords
+stop_words <- readLines("http://www.ai.mit.edu/projects/jmlr/papers/volume5/lewis04a/a11-smart-stop-list/english.stop")
+corpus <- corpus(df$tweet_text_clean, docnames = df$tweetid)
+dtm <- dfm(corpus, remove=stop_words,verbose=TRUE)
+
+```
+
+```{r}
+head(dtm)
+cat("Number of words:", ncol(dtm))
+```
+
+```{r}
+# Top words
+colSums(dtm)[order(colSums(dtm),decreasing=TRUE)[1:20]]
+topwords <- quanteda.textstats::textstat_frequency(dtm)
+topwords[1:20] %>% 
+  ggplot(aes(x=reorder(feature,frequency), y=frequency, label=frequency)) +
+  labs(title = "Top 20 Words") +
+  geom_col() +
+  coord_flip() +
+  labs(x = NULL, y = "Frequency") +
+  theme_minimal() +
+  geom_text(nudge_y=200, size = 3)
+```
+
+```{r}
+set.seed(pi)
+quanteda.textplots::textplot_wordcloud(dtm, rotation=0.25, min_size=.75, max_size=3,max_words=1000,)
+```
+
+```{r}
+#create dfm
+tags_corpus <- corpus(df$hashtags)
+tags_dtm <- dfm(tags_corpus, remove = c("[", "]", ",", "'", "#", "ー"))
+
+#plot hashtag frequency
+toptags<- quanteda.textstats::textstat_frequency(tags_dtm)
+toptags[1:20] %>% 
+  ggplot(aes(x=reorder(feature,frequency), y=frequency, label=frequency)) +
+  labs(title = "Top 20 Hashtags") +
+  geom_col() +
+  coord_flip() +
+  labs(x = NULL, y = "Frequency") +
+  theme_minimal() +
+  geom_text(nudge_y=5, size = 3)
+
+#word cloud
+quanteda.textplots::textplot_wordcloud(tags_dtm, rotation = 0.25, min_size=.75, max_size=3, max_words=100)
+```
+
+### Dictionary Methods
+
+```{r}
+pos_words = readLines('https://raw.githubusercontent.com/nealcaren/quant-text-fall-2014/master/positive.csv')
+neg_words = readLines('https://raw.githubusercontent.com/nealcaren/quant-text-fall-2014/master/negative.csv')
+
+df$positive <- rowSums(dtm[,which(featnames(dtm) %in% pos_words)])
+df$negative <- rowSums(dtm[,which(featnames(dtm) %in% neg_words)])
+df$pos_neg_ratio <- df$positive - df$negative
+
+summary(df[,positive:pos_neg_ratio])
+```
+
+```{r}
+byMonth <- df %>%
+  group_by(month = as.Date(cut(Date, "month"))) %>%
+  summarise(sentiment = mean(pos_neg_ratio))
+# Balance!!!
+all_months <- data.frame(month = seq(as.Date(cut(min(df$Date),"month")),as.Date(cut(max(df$Date),"month")),by="month"))
+byMonth <- right_join(byMonth,all_months)
+byMonth[is.na(byMonth)] <- 0
+byMonth <- byMonth[order(byMonth$month),]
+  
+ggplot(byMonth, aes(x=month,y=sentiment,group=1)) + 
+  geom_line(stat='identity') +
+  scale_x_date(date_breaks = "6 month", date_labels = "%b %Y") +
+  theme_minimal() +
+  xlab("Month") + 
+  ylab("Average Sentiment") +
+  ggtitle("Average Positive-Negative Ratio of IRA Tweets") +
+  theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=1))
+  
+```
+
+### Topic Modeling
+
+```{r}
+# Save only top 500 words
+dtm <- dtm[,which(featnames(dtm) %in% topwords$feature[1:300])]
+
+# Are there any tweets with no words?
+dtm <- dtm[rowSums(dtm)>0,]
+```
+
+```{r}
+# number of topics
+K <- 10
+
+# Run LDA
+topicModel <- topicmodels::LDA(dtm, K, control=list(seed = pi))
+
+# Top 10 words
+topicmodels::terms(topicModel, 10)
+```
