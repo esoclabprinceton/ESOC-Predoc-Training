@@ -1,0 +1,79 @@
+---
+title: "World Map of Measles Vaccinations"
+output:
+  html_document:
+    df_print: paged
+    code_folding: show
+    fig_width: 8
+    fig_height: 6
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(fig.path="figures\\",
+               cache.path="cache\\",
+               cache=FALSE,
+               echo=TRUE,
+               message=FALSE,
+               warning=FALSE) 
+
+library(dplyr)
+library(ggplot2)
+library(ggthemes)
+library(tidyr)
+
+```
+
+## Data
+
+Vincent Arel-Bundock provides a nice package for R that makes it easy to import the World Development Indicators data. 
+
+```{r load data}
+#install.packages("WDI")
+library(WDI)
+
+#WDIsearch('measles')
+df <- WDI(indicator = "SH.IMM.MEAS", extra = TRUE)
+df <- df %>% 
+  filter(!is.na(SH.IMM.MEAS)) %>%
+  filter(region != "Aggregates") %>%
+  select(-c(capital, longitude, latitude)) 
+```
+
+## world map of the share of infants vaccinated against measles
+
+Use the map package and the measles data to make a world map of the share of infants vaccinated against measles.
+
+```{r}
+library("rnaturalearth")
+library("rnaturalearthdata")
+world <- ne_countries(scale = "medium", returnclass = "sf")
+
+df_2018 <- df %>%
+  filter(year==2018) %>%
+  select(country, SH.IMM.MEAS, iso3c) 
+
+world_merged <- left_join(world, df_2018, by = c("iso_a3"="iso3c"))
+
+ggplot(data = world_merged) +
+  geom_sf(aes(fill=SH.IMM.MEAS), color=NA, alpha=0.8) +
+  scale_fill_viridis_c(option = "plasma", na.value="gray90", breaks=seq(0,100,20), limits=c(20,100)) + 
+  labs(title = "Fighting Measles with Vaccination",
+       subtitle = "a world map of the share of infants vaccinated against measles",
+       caption = "Source: World Development Indicators, World Bank 2018",
+       fill = "% of infants \nvaccinated against measles") + 
+  
+  theme_map() + 
+  
+  theme(
+    plot.subtitle=element_text(size=10, color="grey40", lineheight=.9, face="italic"), 
+    plot.caption=element_text(size=7, color="grey40"),
+    legend.title = element_text(size=7, color="grey40")) 
+```
+
+
+
+
+
+
+

@@ -1,0 +1,359 @@
+---
+title: "Samikshya Siwakoti Data Visualization - Student debt over time"
+author: "Samikshya Siwakoti"
+date: "2/22/2020"
+output:
+  pdf_document:
+    toc: yes
+  html_notebook:
+    toc: yes
+  word_document:
+    toc: yes
+  html_document:
+    highlight: textmate
+    theme: spacelab
+    toc: yes
+always_allow_html: yes
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(knitr)
+library(tidyverse)
+library(ggrepel)
+library(ggthemes)
+library(tm)
+library(SnowballC)
+library(wordcloud)
+library(RColorBrewer)
+library(plotly)
+library(DT)
+```
+
+ 
+## Data
+
+The main data comes from the _Survey of Consumer Finances_ which is conducted every three years from 1989 onwards (last year in the data is 2016) and is provided as comma-separated text file, containing 55 variables for 238880 cases. The variables cover some details on household demographics, assets, debts, debt payments, income, net worth, and expenditures. 
+
+## Tasks
+
+## 1. Debt over time
+
+Investigate how household debt has developed over time from 1989 to 2016. Did student debt become more important over time? How did student loan debt compare to other types of debt (car loans, mortgage, credit card, etc.)? Consider using the ratios of debt to income and/or assets to explore this question. To do this, you will need to wrangle the data to calculate median/mean values by survey year for some variables of interest. 
+
+Create 2-3 charts in this section to highlight some important patterns. Make sure to use some variation in the type of visualizations. Briefly discuss which visualization you recommend to your editor and why.
+
+
+
+
+First, I will prep the data for making time trend plots
+
+```{r, include=FALSE}
+data = read_csv("~/Desktop/dataviz/hw01/survey_SCF.txt")
+```
+`
+
+```{r, include=FALSE}
+library(dplyr)
+```
+
+
+```{r}
+t <- data
+test3 <- aggregate(list(`TotalInc`=t$INCOME, `EducLoans`=t$EDN_INST, `VehLoans`=t$VEH_INST, `CreditCard`=t$CCBAL, `Mortgage`=t$NH_MORT, `InstallLoans`=t$INSTALL, `OtherLoans`=t$OTHLOC), by = list(`Year`=t$YEAR), sum)
+```
+
+
+```{r}
+debt_time <- test3 %>%
+  mutate(`EducLoans` = EducLoans/TotalInc,`VehLoans` = VehLoans/TotalInc, `CreditCard`= CreditCard/TotalInc,`Mortgage`= Mortgage/TotalInc, `InstallLoans` = InstallLoans/TotalInc, `OtherLoans` = OtherLoans/TotalInc)
+```
+
+
+```{r}
+debt_time<-na.omit(debt_time)
+```
+
+```{r}
+debt_time2 <- data %>%
+  filter(EDN_INST>0) %>% 
+  group_by(YEAR) %>%
+  summarise(`EducLoans`=mean(EDN_INST), `VehLoans2` = mean(VEH_INST), `CreditCard2`= mean(CCBAL),`DebtToIncome2`=      mean(DEBT2INC),`Mortgage2`= mean(NH_MORT))
+```
+
+
+```{r, include=FALSE}
+library(scales)
+```
+
+
+```{r}
+plot0 <- ggplot(debt_time2, aes(x = YEAR)) +
+  geom_line(aes( y = `EducLoans`),color="blue",size=1) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1), axis.line=element_line(color="black"))+scale_y_continuous(labels = dollar)+
+  ylab("Mean Debt in USD") +
+  ggtitle("Average Educational Loan")+
+  scale_x_continuous(labels=as.character(debt_time2$YEAR),breaks=debt_time2$YEAR)
+  
+
+plot0
+```
+
+Provided that educational loan has been taken, the graph shows the average loan per year over-time from 1989 to 2016. We can see the increasing treand in average loan per year over-time and it is highest in 2016.
+
+
+```{r, message=FALSE}
+plot1 <- ggplot(debt_time, aes(x = Year)) +
+  geom_line(aes( y = `EducLoans`,colour="Education Loans")) +
+  geom_line(aes( y = `VehLoans`,colour="Vehicle Loans"))+
+  geom_line(aes( y = `CreditCard`,colour="Credit Card"))+
+  geom_line(aes( y = `Mortgage`,colour="Mortgage"))+
+  geom_line(aes( y = `OtherLoans`,colour="Other Loans"))+
+  scale_color_manual(values = c(
+    'Education Loans' = 'darkblue',
+    'Vehicle Loans' = 'red',
+    'Credit Card' = 'green',
+    'Mortgage' = 'orange',
+    'Other Loans' = 'brown'), name="Types of debt")+
+ theme(axis.text.x = element_text(angle = 90, hjust = 1),axis.line=element_line(color="black"))+
+  ylab("Debt proportions by income") +
+  ggtitle("Debt Over Time")+scale_x_continuous(labels=as.character(debt_time$Year),breaks=debt_time$Year)
+```
+
+
+````{r}
+plot1
+  
+```
+
+This chart shows the time trends for various types of loans using the debt to income ratio. This ratio makes the comparison easier as it controls for income sizes for households. We can infer that mortgage is the most significant type of loan for households followed by other loans, vehicle loans. Credit card loans and education loans are less important compared to some other categories of loans. All categories of loans show an increasing trend towards 2016 except 'other loans' which shows a decreasing trend.
+
+```{r}
+test4<- test3%>% 
+  select(-c(TotalInc, InstallLoans)) 
+```
+
+```{r, include=FALSE}
+library(reshape2)
+```
+
+
+```{r}
+test5<- reshape2::melt(test4, id.vars="Year")
+```
+
+```{r, include=FALSE}
+library(scales)
+```
+
+
+```{r, message=FALSE,warning=FALSE}
+plot2<- ggplot(test5, aes(Year,value,fill=variable))+geom_bar(position="stack", stat="identity")+
+  scale_fill_brewer(palette = "Set1")+theme(axis.text.x = element_text(angle = 90, hjust = 1),axis.line=element_line(color="black"))+ggtitle("Distribution of types of debt")+scale_fill_discrete(name="Types of debt") + scale_y_continuous(breaks = c(0,1000000000,2000000000,3000000000,4000000000,5000000000,6000000000), labels = dollar)+ylab("Amount of Debt")+scale_x_continuous(labels=as.character(debt_time$Year),breaks=debt_time$Year)
+```
+
+
+```{r}
+plot2
+```
+
+
+The stacked barplot helps to visualize the types of loans and their distribution on a yearly basis. 
+
+Overall, I recommend the first and the third plots as they are helpful to see the increasing trend in educational loans over time as well as its significance in relation to other types of loans.
+
+
+## 2. Demographic plots
+
+The survey is taken at a household level which limits somewhat our inference about individuals (e.g. the household head may not have taken out a student loan but their partner or child may have.) but we will ignore this issue for the purpose of this exercise. 
+
+Select the *data from the most recent year (2016) only (for parts 2 and 3)* and visualize how some selected household characteristics relate to student loan indebtedness. For example, consider the head of the household's gender, age, race, level of education, whether there are kids in the household, single vs. married/living together, etc. 
+
+For example, we do not know any specifics about student loans but can use the information on the head of household's education and age to infer about when they might have received their education (and incurred the debt).
+
+Prepare 2-3 visualizations in this section to show what you found. These analyses do not need to be at the level of all respondents. Feel free to focus on a subset of the data as long as that is clear in your visualization. You can choose to highlight a specific pattern (e.g. "Get your Ph.D. and go broke" or "Stay single to become debt-free").
+
+Again, make sure to use some variation in the type of visualizations and discuss what you recommend to your editor and why.
+
+```{r}
+ques2_data<- data %>% 
+filter(YEAR==2016) %>% 
+  filter(EDN_INST>0)
+```
+
+
+
+```{r, warning=FALSE,message=FALSE}
+ plot3<- ggplot(ques2_data, aes(factor(EDCL), EDN_INST, fill = as.factor(MARRIED))) + 
+  geom_bar(stat="identity", position = "dodge") + 
+  scale_fill_brewer(palette = "Set1")+ggtitle("Education Loan by marital status and education category")+ylab("Education  Loans")+xlab("Educational Categories")+ggplot2::scale_fill_discrete(name="Marital Status", breaks=c(1, 2), labels = c("Married", "Not Married"))+scale_y_continuous(labels = dollar)+scale_x_discrete(labels=c("No highschool","High school/GED","Some College","College Degree"))
+```
+
+The grouped barplot shows that in all categories of educational level, the married households have higher educational debts compared to not married households. It also shows that the higher the educational level of the household, the higher is the level of educational debt i.e. the households with college degree have most amount of educational debt than other households with less education.
+
+```{r}
+plot3
+```
+
+```{r, message=FALSE}
+datanew<- ques2_data %>% 
+  filter(EDN_INST>5000) %>% 
+  filter(EDN_INST<60000) 
+ggplot(datanew, aes(x=factor(EDCL), y=EDN_INST, fill= factor(HHSEX))) + 
+    geom_boxplot()+scale_y_continuous(labels = dollar)+scale_fill_brewer(palette = "Set1")+ggtitle("Education Loan by sex and education category")+ylab("Education  Loans")+xlab("Educational Categories")+ggplot2::scale_fill_discrete(name="Sex", breaks=c(1, 2), labels = c("Male", "Female"))+scale_y_continuous(labels = dollar)+scale_x_discrete(labels=c("No highschool","High school/GED","Some College","College Degree"))
+```
+
+In the barplot, we can see the distribution of education loans by educational categories as well as gender. Due to presence of many outliers, I only included data from households with education loans >5000 and <60000.
+
+There is no clear pattern by gender in the barplot. 
+
+Thus, I would refer the barplot to the editor as it shows a clearer pattern in terms of educational loans by married vs. non married households. 
+
+## 3. Wealth and Income Distribution
+
+We may expect households with higher incomes, larger capital gains, and more wealth to generally be less indebted. On the other hand, higher incomes may be the result of longer (and potentially more expensive) education. Again, using the data from 2016 only, investigate how income and wealth are related to student loan debt. Consider using the variables _Income percentile groups_ (`INCCAT`) and _Net worth percentile groups_ (`NWCAT`) for this analysis. 
+
+Show 1-2 visualizations for this section, and as before, briefly tell the editor what you recommend.
+
+```{r}
+ques3_data<- data %>% 
+filter(YEAR==2016) %>% 
+  filter(EDN_INST>0) %>% 
+  filter(EDUC>10) %>% 
+  mutate_at(c('INCCAT','EDUC'),list(as.factor)) %>% 
+  group_by(EDUC,INCCAT) %>% 
+  summarise(Average_loan=mean(EDN_INST))
+```
+
+
+
+```{r, message=FALSE}
+ggplot(ques3_data, aes(x=INCCAT,y=EDUC, fill= Average_loan ))+geom_tile()+scale_fill_gradient(name="Average Loan")+xlab("Income Categories")+ylab("Educational Categories")
+
+```
+
+In this plot with tiles, for higher average educational loan, the graph becomes lighter. The lightest tile is for income category 3 and education level 14.  I would refer the editor to include this plot as it shows an interesting pattern which is that PhD's (represented by code 14) from middle class households (represented by income category 3) have the highest average educational loans.
+
+## 4. Food Costs
+
+Let's focus on the part of the survey respondents whose debt load was crushing to the point that they declared bankruptcy and/or faced foreclosure, etc. Decide whether you want to show an over-time comparison or rely on the data from 2016 only. What role does student loan debt play in these households' struggles with debt? 
+
+Lastly, to potentially produce some clickbaity type results, use the information on food spending (`FOODHOME`, `FOODDELV`, `FOODAWAY`) to visualize whether some non-thrifty behavior is associated with debt struggles.
+
+Show 2-3 visualizations for this section, and identify for the editor the reason for your choices.
+
+
+
+```{r}
+std_loan<-data %>% 
+  filter(EDN_INST>0)
+x<- sum(std_loan$BNKRUPLAST5)/count(std_loan)*100  
+```
+
+```{r}
+no_std_loan<-data %>% 
+  filter(EDN_INST==0)
+y<- sum(no_std_loan$BNKRUPLAST5)/count(no_std_loan)*100  
+```
+
+```{r}
+# Create Data
+Prop <- c(x$n,y$n)
+library(RColorBrewer)
+myPalette <- brewer.pal(5, "Set2")
+# Make the default Pie Plot
+pie(Prop,labels = c("Student Loan (4.24%)","Without Student Loan (2.13%)"),border="white", col=myPalette,main = "Percentage of Declaring Bankruptcy")
+```
+
+From the pie-chart, we can see that the percent of declaring backruptcy is twice higher in households that have student loans than households without student loans.
+
+```{r}
+broke_plot <- data %>%
+  filter(EDN_INST>0) %>% 
+  group_by(YEAR) %>%
+  filter(YEAR>2001) %>% 
+  summarise(`EducLoans`=mean(EDN_INST), `FoodAway` = mean(FOODAWAY), `FoodHome`= mean(FOODHOME),`FoodDelv`= mean(FOODDELV))
+```
+
+```{r}
+testc<- broke_plot %>% 
+  reshape2::melt(.,id.vars="YEAR")
+```
+
+
+
+```{r}
+plot_broke<- ggplot(testc, aes(YEAR,value,fill=variable))+geom_density(stat="identity",alpha=0.7)+
+scale_fill_brewer(palette = "Set1")+theme(axis.text.x = element_text(angle = 90, hjust = 1),axis.line=element_line(color="black"))+ggtitle("Distribution of types of costs")+scale_fill_discrete(name="Types of costs") + scale_y_continuous(labels = dollar)+ylab("Mean Value(Dollars)")+scale_x_continuous(labels=as.character(debt_time$Year),breaks=debt_time$Year)
+plot_broke
+```
+
+The graph shows that the educational loan costs have been increasing over-time from 2004 to 2016. I chose this time limit and omitted earlier years because the value for food cost related variables is zero prior to 2004 and it seems like these variables on food costs were simply not recorded prior to 2004. The food costs have remained consistent and the largest costs among food habit expenses comes from food at home. Although the food costs have not changed much, it's unclear if people's intake of food in terms of quantity has changed. On contrary, the avaerage amount of educational loans have been increasing overtime.
+
+## 5. Interactivity
+
+ Choose 2 of the plots you created above and add interactivity. Briefly describe to the editor why interactivity in these visualizations is particularly helpful for a reader.
+
+```{r}
+library(plotly)
+
+p<- ggplotly(plot0)
+p
+```
+Adding interactivity in this graph helps to see the exact mean value of educational loan in a particular year when the reader hovers over the plotted points in the line graph. The reader can also adjust some of the settings at the top right corner as per preference.
+
+```{r}
+p2<- ggplotly(plot2)
+p2
+```
+
+Adding interactivity in this graph helps to see the exact total value for each type of loan in a particular year when the reader hovers over the bars in the stacked bar graph. The reader can also adjust some of the settings at the top right corner as per preference.
+
+## 6. Data Table
+
+Prepare a selected dataset that you consider useful to share and add a datatable to the output. Make sure the columns are clearly labeled. Select the appropriate options for the data table (e.g. search bar, sorting, column filters, etc.). Suggest to the editor which kind of information you would like to provide in a data table and why.
+
+```{r, include=FALSE}
+library(DT)
+library(dplyr)
+```
+
+
+```{r}
+df6<- data %>% 
+  filter(EDN_INST>200000) %>%  
+  select(c(YEAR,EDN_INST,KIDS,RACE,HHSEX)) 
+df7 <- rename(df6, 
+              "Year"="YEAR",
+              "Student Debt" = "EDN_INST", 
+              "No. of Kids" = "KIDS",
+              "Race" = "RACE",
+              "Gender" = "HHSEX")
+```
+
+
+```{r, warning=FALSE, message=FALSE}
+pretty_headers <- 
+  gsub("[.]", " ", colnames(df7)) %>%
+  str_to_title()
+
+
+datatable(df7, rownames = FALSE,
+    colnames = pretty_headers, options = list(pageLength = 10)) %>% 
+  formatStyle('Year',  color = 'white', 
+                backgroundColor = 'grey', fontWeight = 'bold') %>% 
+  formatStyle('Student Debt',  color = 'white', 
+               backgroundColor = 'grey', fontWeight = 'bold') %>% 
+  formatStyle('No. of Kids',  color = 'white', 
+               backgroundColor = 'grey', fontWeight = 'bold') %>% 
+  formatStyle('Race',  color = 'white', 
+               backgroundColor = 'grey', fontWeight = 'bold') %>% 
+  formatStyle('Gender',  color = 'white', 
+               backgroundColor = 'grey', fontWeight = 'bold') 
+```
+
+
+In the given datable, I have selected demographic variables to see what types of households have taken educational loans over $200,000. The search bar enables the user to make specific searches such as by a specific year. The user can make some modifications as per preference such as decide how many entries to see per page.
+
+
