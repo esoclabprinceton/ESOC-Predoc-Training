@@ -4,10 +4,10 @@
 
 ### This version 2021-11-11
 
-## Introduction
+## Introduction 
 
 This 10-week training program is designed to prepare incoming pre-doctoral research fellows
-at the Princeton Empirical Studies of Conflict (ESOC) lab with the skills needed to support
+at the [Princeton Empirical Studies of Conflict](https://esoc.princeton.edu/) (ESOC) lab with the skills needed to support
 faculty research projects within ESOC, SPIA, and associated departments. The program
 will draw from online courses for core data processing and visualization skills, research
 training materials from partnering organizations, and materials prepared by the team at
@@ -484,7 +484,7 @@ as well. The common ones are MacTex for Mac and MikTex for Windows.
 
 One of the most important skills to learn is to automatically convert your code results
 into nicely-formatted tables for publication. You should start by understanding how the
-“table” environment works in :http://www1.maths.leeds.ac.uk/LaTeX/TableHelp1.pdf.
+“table” environment works: http://www1.maths.leeds.ac.uk/LaTeX/TableHelp1.pdf.
 Luckily, there are many packages available out there that can format your results into tables
 automatically. Here are some resources with code samples to get started:
 
@@ -545,10 +545,10 @@ https://edge.edx.org/assets/courseware/v1/fe1cb61a45c21910d8981c75298484d2/c4x/B
     - Constantin Colonescu,Principles of Econometrics with R, https://bookdown.org/ccolonescu/RPoE4/
     - Anthony Schmidt,Causal Inference in Education, https://bookdown.org/aschmi11/causal_inf/
 - Python specific:
-    - Chapters 18–20 of Kevin Sheppard,Introduction to Python for Econometrics,
+    - Chapters 18–20 of Kevin Sheppard, Introduction to Python for Econometrics,
        kevinsheppard.com/teaching/python/notes/(covers LM/GLM)
     - “Causal Inference for The Brave and True” is an open source causal inference
-       guide in Python:https://matheusfacure.github.io/python-causality-handbook/landing-page.html
+       guide in Python: https://matheusfacure.github.io/python-causality-handbook/landing-page.html
 
 This work is licensed under a Creative Commons Attribution 4.0 International License.
 [https://creativecommons.org/licenses/by/4.0/]. 
