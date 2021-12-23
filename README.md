@@ -141,12 +141,9 @@ Week 01: Data Cleaning, Descriptive Statistics, and Visualizations
 Learning Objective:
 
 - Learn/review effective data cleaning and management techniques.
-- Understand fundamental concepts in statistics in order to describe data (e.g., distri-
-    butions, central tendency theory, bi/multivariate data, etc.).
-- Implement descriptive analysis in R/STATA/Python (e.g., learn to extract key sum-
-    mary information from data, etc.).
-- Understand how and why different visualisation tools are used in descriptive data
-    analysis.
+- Understand fundamental concepts in statistics in order to describe data (e.g., distributions, central tendency theory, bi/multivariate data, etc.).
+- Implement descriptive analysis in R/STATA/Python (e.g., learn to extract key summary information from data, etc.).
+- Understand how and why different visualisation tools are used in descriptive data analysis.
 
 Assignment: Instructions are in the “Week 1 Assignment" folder on Dropbox.
 
@@ -199,8 +196,7 @@ Learning Objective:
 - Understand the basics of linear regression and discrete choice models, and learn to
     run specific kind of regression models in R/STATA/Python.
 - Understand what a DAG is and be able to construct one.
-- Be able to calculate and interpret coefficients and different standard errors in regres-
-    sion models.
+- Be able to calculate and interpret coefficients and different standard errors in regression models.
 - Be prepared to run and plot interaction terms in linear and discrete choice models.
 
 Assignment:
@@ -269,11 +265,9 @@ Week 05: Operationalizing Regressions pt. 2
 
 Learning Objective:
 
-- Be able to understand Panel Data structure and why fixed effects are used in panel
-    data
+- Be able to understand Panel Data structure and why fixed effects are used in panel data
 - Be able to understand when and why a Difference-in-Differences model is used
-- Think about potential research designs to improve causal inference in your capstone
-    project.
+- Think about potential research designs to improve causal inference in your capstone project.
 
 Assignment: From Cunningham’s book: any data exercises from the assigned readings any
 other exercises from: https://mixtape.scunning.com/teaching-resources.html
@@ -289,8 +283,7 @@ Week 06: Operationalizing Regressions pt.3 & Panel Data Exercise #2
 Learning Objective:
 
 - Be prepared to work with clustered standard error.
-- Understand the basics of power analysis and identify what factors could affect statis-
-    tical power.
+- Understand the basics of power analysis and identify what factors could affect statistical power.
 - Be able to interpret interaction terms in logit and probit models.
 - Practice panel data skills.
 
@@ -337,8 +330,7 @@ program (eg. R, Stata, etc.) for this section.
 Readings:
 
 - Data Camp skill track, “Natural Language Processing in Python”:
-    - We recommend completing the courses Introduction to NLP in Python, Senti-
-       ment Analysis in Python, and Advanced NLP with spaCy. Additional courses
+    - We recommend completing the courses Introduction to NLP in Python, Sentiment Analysis in Python, and Advanced NLP with spaCy. Additional courses
        in skill track are optional. https://app.datacamp.com/learn/skill-tracks/natural-language-processing-in-python
 - Learningregex: https://regexone.com/
 - regexcheatsheet: https://github.com/justingrimmer/tad_19/blob/master/regex.pdf
@@ -349,8 +341,7 @@ Readings:
 
 Additional NLP Resources:
 
-- Chapter 17 (Collecting Data from the Web) of Rochelle Terman’s PLSC 31101: Com-
-    putational Tools for Social Science course notes: https://plsc-31101.github.io/course/collecting-data-from-the-web.html#web-apis (uses R)
+- Chapter 17 (Collecting Data from the Web) of Rochelle Terman’s PLSC 31101: Computational Tools for Social Science course notes: https://plsc-31101.github.io/course/collecting-data-from-the-web.html#web-apis (uses R)
 - Ryan Mitchell,Web Scraping with Python: Collecting Data from the Modern Web.
 
 Robustness checks Resources:
@@ -360,17 +351,14 @@ Robustness checks Resources:
 - Belloni, A., V. Chernozhukov, and C. Hansen (2014): “High-dimensional methods and
     inference on structural and treatment effects” Journal of Economic Perspectives, 28,
     29–50.
-- Borusyak, K., X. Jaravel, and J. Spiess (2021): “Revisiting event study designs: Ro-
-    bust and efficient estimation” Tech. rep., Working Paper.
+- Borusyak, K., X. Jaravel, and J. Spiess (2021): “Revisiting event study designs: Robust and efficient estimation” Tech. rep., Working Paper.
 - Callaway, B. and P. H. Sant’Anna (2020): “Difference-in-differences with multiple
     time periods” Journal of Econometrics.
 - Marcus, M. and P. H. Sant’Anna (2021): “The role of parallel trends in event study
     settings: An application to environmental economics” Journal of the Association of
     Environmental and Resource Economists, 8, 235–275.
-- Roth, J. (2021): “Pre-test with caution: Event-study estimates after testing for par-
-    allel trends” Working paper.
-- Sant’Anna, P. H. and J. Zhao (2020): “Doubly robust difference-in-differences esti-
-    mators” Journal of Econometrics, 219, 101–122.
+- Roth, J. (2021): “Pre-test with caution: Event-study estimates after testing for parallel trends” Working paper.
+- Sant’Anna, P. H. and J. Zhao (2020): “Doubly robust difference-in-differences estimators” Journal of Econometrics, 219, 101–122.
 - Wooldridge, J. (2021): “Two-Way Fixed Effects, the Two-Way Mundlak Regression,
     and Difference-in-Differences Estimators” Available at SSRN 3906345.
 - De Chaisemartin, C. and X. d’Haultfoeuille (2020): “Two-way fixed effects estimators
@@ -420,8 +408,7 @@ https://sejdemyr.github.io/r-tutorials/segregation/
 (c) Additional GIS resources:
 
 - Fick, S. E. and R. J. Hijmans (2017): “WorldClim 2: new 1-km spatial resolu-
-    tion climate surfaces for global land areas,” International Journal of Climatol-
-    ogy, 37, 4302–4315. https://rmets.onlinelibrary.wiley.com/doi/full/10.1002/joc.
+    tion climate surfaces for global land areas,” International Journal of Climatology, 37, 4302–4315. https://rmets.onlinelibrary.wiley.com/doi/full/10.1002/joc.
 - Goldblatt, R., M. F. Stuhlmacher, B. Tellman, N. Clinton, G. Hanson, M.
     Georgescu, C. Wang, F. Serrano-Candela, A. Khandelwal, W.-H. Cheng, and R.
     C. Balling Jr (2018): “Using Landsat and nighttime lights for supervised pixel-
@@ -520,10 +507,10 @@ Implementing empirical models in code:
 - Model Estimation chapter of the Library of Statistical Techniques (LOST) has R and
     STATA code as well: https://lost-stats.github.io/Model_Estimation/Model_Estimation.html
 - STATA specific:
-    - Xiao Chen, Philip B. Ender, Michael Mitchell and Christine Wells,Regression
-       with Stata,https://stats.idre.ucla.edu/stata/webbooks/reg/
+    - Xiao Chen, Philip B. Ender, Michael Mitchell and Christine Wells, Regression
+       with Stata, https://stats.idre.ucla.edu/stata/webbooks/reg/
     - Xiao Chen, Phil Ender, Michael Mitchell and Christine Wells,Logistic Regression
-       with Stata,https://stats.idre.ucla.edu/stata/webbooks/logistic/
+       with Stata, https://stats.idre.ucla.edu/stata/webbooks/logistic/
     - Handouts from BerkeleyX’s CEGA101AIE Applied Impact Evaluation course:
 
 
@@ -534,8 +521,7 @@ Regression discontinuity:
 https://edge.edx.org/assets/courseware/v1/fe1cb61a45c21910d8981c75298484d2/c4x/BerkeleyX/CEGA101AIE/asset/Module_2.4_Regression_Discontinuity.pdf
 
 - R specific:
-    - Christoph Hanck, Martin Arnold, Alexander Gerber, and Martin Schmelzer,In-
-       troduction to Econometrics with R, https://www.econometrics-with-r.org/
+    - Christoph Hanck, Martin Arnold, Alexander Gerber, and Martin Schmelzer, Introduction to Econometrics with R, https://www.econometrics-with-r.org/
     - Constantin Colonescu,Principles of Econometrics with R, https://bookdown.org/ccolonescu/RPoE4/
     - Anthony Schmidt,Causal Inference in Education, https://bookdown.org/aschmi11/causal_inf/
 - Python specific:
