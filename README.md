@@ -248,7 +248,7 @@ Additional Resources:
 - MIT 14.771/ Harvard 2390b “Empirical Methods” handout: http://web.mit.edu/14.771/www/emp_handout.pdf
 
 
-Week 04: Operationalizing Regressions pt.
+Week 04: Operationalizing Regressions pt. 1
 
 Learning Objective:
 
@@ -265,7 +265,7 @@ Readings:
 - Chapters 6 and 7 of Scott Cunningham’s Causal Inference: The Mixtape, https://mixtape.scunning.com/regression-discontinuity.html
 
 
-Week 05: Operationalizing Regressions pt.
+Week 05: Operationalizing Regressions pt. 2
 
 Learning Objective:
 
