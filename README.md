@@ -30,7 +30,7 @@ Shapiro and feedback from many colleagues. Gigs Banga provided invaluable beta t
 and Nilima Pisharody completed post-testing revisions. The first cohort of FDR fellow, Chris Buckley and
 Hanjatiana Nirina Randrianarisoa, provided excellent feedback and made many changes from their experience 
 with the curriculum. Throughout, we draw on others’ outstanding resources and owe a particular
-debt to Scott Cunningham’sCausal Inference: The Mixtape. Developing this curriculum was an interdisciplinary 
+debt to Scott Cunningham’s Causal Inference: The Mixtape. Developing this curriculum was an interdisciplinary 
 team effort.
 
 ## Bootcamp Details
@@ -208,21 +208,20 @@ Assignment:
 - Complete Data Camp’s “Introduction to Statistics” course in R, https://learn.datacamp.com/courses/introduction-to-statistics-in-r 
    or Python, https://learn.datacamp.com/courses/introduction-to-statistics-in-python. Email the
     certificate of completion to ESOC Research Specialist copying Prof. Shapiro.
-- From Cunningham’s book: any data exercises from the assigned readings & “Probabil-
-    ity and Statistics” exercises here: https://mixtape.scunning.com/teaching-resources.html
+- From Cunningham’s book: any data exercises from the assigned readings & “Probability and Statistics” exercises here: https://mixtape.scunning.com/teaching-resources.html
 
 Readings:
 
-- Chapter 2 and 3 of Scott Cunningham’sCausal Inference: The Mixtape, https://mixtape.scunning.com/probability-and-regression.html
-- “Binary Choice Models”,https://faculty.utrgv.edu/diego.escobari/teaching/Econ3341/Handouts/Chapter09.pdf
-- UCLA Statistical Consulting Group’s introduction to interaction termsDecomposing,
-    Probing, and Plotting Interactions in R/Stata,https://stats.idre.ucla.edu/r/seminars/interactions-r/#s3c
+- Chapter 2 and 3 of Scott Cunningham’s Causal Inference: The Mixtape, https://mixtape.scunning.com/probability-and-regression.html
+- “Binary Choice Models”, https://faculty.utrgv.edu/diego.escobari/teaching/Econ3341/Handouts/Chapter09.pdf
+- UCLA Statistical Consulting Group’s introduction to interaction terms Decomposing,
+    Probing, and Plotting Interactions in R/Stata, https://stats.idre.ucla.edu/r/seminars/interactions-r/#s3c
 
 Additional Resources:
 
-- Probability cheatsheets:http://www.wzchen.com/probability-cheatsheet/
+- Probability cheatsheets: http://www.wzchen.com/probability-cheatsheet/
 
-- Khan Academy, “Statistics and Probability”,https://www.khanacademy.org/math/statistics-probability
+- Khan Academy, “Statistics and Probability”, https://www.khanacademy.org/math/statistics-probability
 - J-PAL MicroMasters’ Data Analysis for Social Scientists course: https://www.edx.org/course/data-analysis-for-social-scientists
 - Konrad Menzel’s Introduction to Statistical Methods in Economics course: https://ocw.mit.edu/courses/economics/14-30-introduction-to-statistical-methods-in-economics-spring-2009/index.htm
 
@@ -231,16 +230,14 @@ Week 03: Causal Inference
 
 Learning Objective:
 
-- Understand potential outcomes framework, develop familiarity with one way of ap-
-    proximating the ideal experiment (e.g. making[X′X]−^1 X′ε= 0).
+- Understand potential outcomes framework, develop familiarity with one way of approximating the ideal experiment.
 - Be able to identify and utilize methods for estimating causal effects using matching
     and subclassification.
 - Think about potential research designs to improve causal inference in your capstone
     project.
 
 Assignment: From Cunningham’s book: any data exercises from the assigned readings & the
-chapter-specific exercises from: https://mixtape.scunning.com/potential-outcomes.
-html
+chapter-specific exercises from: https://mixtape.scunning.com/potential-outcomes.html
 
 Readings: Chapters 4 and 5 of Scott Cunningham’s Causal Inference: The Mixtape, https://mixtape.scunning.com/potential-outcomes.html
 
@@ -260,12 +257,12 @@ Learning Objective:
 - Think about potential research designs to improve causal inference in your capstone
     project.
 
-Assignment:From Cunningham’s book: any data exercises from the assigned readings &
+Assignment: From Cunningham’s book: any data exercises from the assigned readings &
 any other exercises from: https://mixtape.scunning.com/teaching-resources.html
 
 Readings:
 
-- Chapters 6 and 7 of Scott Cunningham’sCausal Inference: The Mixtape, https://mixtape.scunning.com/regression-discontinuity.html
+- Chapters 6 and 7 of Scott Cunningham’s Causal Inference: The Mixtape, https://mixtape.scunning.com/regression-discontinuity.html
 
 
 Week 05: Operationalizing Regressions pt.
@@ -283,7 +280,7 @@ other exercises from: https://mixtape.scunning.com/teaching-resources.html
 
 Readings:
 
-- Chapters 8 and 9 of Scott Cunningham’sCausal Inference: The Mixtape, https://mixtape.scunning.com/panel-data.html
+- Chapters 8 and 9 of Scott Cunningham’s Causal Inference: The Mixtape, https://mixtape.scunning.com/panel-data.html
 - Josh Blumenstock’s lecture notes on fixed effects models: http://www.jblumenstock.com/files/courses/econ174/FEModels.pdf
 
 
@@ -353,7 +350,7 @@ Readings:
 Additional NLP Resources:
 
 - Chapter 17 (Collecting Data from the Web) of Rochelle Terman’s PLSC 31101: Com-
-    putational Tools for Social Science course notes: https://plsc-31101.github.io/course/collecting-data-from-the-web.html#web-apis(uses R)
+    putational Tools for Social Science course notes: https://plsc-31101.github.io/course/collecting-data-from-the-web.html#web-apis (uses R)
 - Ryan Mitchell,Web Scraping with Python: Collecting Data from the Modern Web.
 
 Robustness checks Resources:
@@ -380,22 +377,22 @@ Robustness checks Resources:
     with heterogeneous treatment effects” American Economic Review, 110, 2964–96.
 
 
-Week 08:Working with GIS Data & Spatial Data Exercise
+Week 08: Working with GIS Data & Spatial Data Exercise
 
-Learning Objective:Basic skills for visualizing geo-spatial data.
+Learning Objective: Basic skills for visualizing geo-spatial data.
 
 - Understand the basics of working with GIS data.
 - Be able to visualize the geo-spatial data with layers.
 - Practice the basics of geo-coding with google APIs.
 
-Assignment:Instructions are in the “GIS Data Exercise” folder on Dropbox.
+Assignment: Instructions are in the “GIS Data Exercise” folder on Dropbox.
 
 We encourage you to use R to handle geospatial data. While there are many programs out
 there, R has an impressive library of packages for working with spatial data and conducting
 spatial analysis commonly used in the social sciences. You are welcome to find your own
 set of resources if you prefer using a separate program (eg. Python, ArcGIS, Stata, etc.)for
-this section. While we recommend using thesf package to complete the assignment, the
-resources below uses a mix of bothspandsf.
+this section. While we recommend using the *sf* package to complete the assignment, the
+resources below uses a mix of both *sp* and *sf*.
 
 Readings:
 
@@ -413,8 +410,7 @@ Readings:
 
 
 - For Tutorial 4: Geo-Coding and Principles of Web-APIs, please register your
-    API key on Google Maps Platform. Google offers a 90-day free trial. https://www.rdocumentation.org/packages/ggmap/versions/3.0.0/topics/register_
-    google
+    API key on Google Maps Platform. Google offers a 90-day free trial. https://www.rdocumentation.org/packages/ggmap/versions/3.0.0/topics/register_google
 - An application of spatial analysis: Simon Ejdemyr, “Segregation Measures in R,”
 https://sejdemyr.github.io/r-tutorials/segregation/
 - Creating a Point Map From a CSV File in R by Michael Minn, https://michaelminn.net/tutorials/r-csv-point-map/index.html
@@ -425,22 +421,22 @@ https://sejdemyr.github.io/r-tutorials/segregation/
 
 - Fick, S. E. and R. J. Hijmans (2017): “WorldClim 2: new 1-km spatial resolu-
     tion climate surfaces for global land areas,” International Journal of Climatol-
-    ogy, 37, 4302–4315.https://rmets.onlinelibrary.wiley.com/doi/full/10.1002/joc.
+    ogy, 37, 4302–4315. https://rmets.onlinelibrary.wiley.com/doi/full/10.1002/joc.
 - Goldblatt, R., M. F. Stuhlmacher, B. Tellman, N. Clinton, G. Hanson, M.
     Georgescu, C. Wang, F. Serrano-Candela, A. Khandelwal, W.-H. Cheng, and R.
     C. Balling Jr (2018): “Using Landsat and nighttime lights for supervised pixel-
     based image classification of urban land cover,” Remote Sensing of Environment,
-    205.https://gps.ucsd.edu/_files/faculty/hanson/hanson_publications_landsat.pdf
+    205. https://gps.ucsd.edu/_files/faculty/hanson/hanson_publications_landsat.pdf
 - Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.
     Tyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, et al. (2013):
     “High-resolution global maps of 21st-century forest cover change,” Science, 342,
-    850–853.https://pubmed.ncbi.nlm.nih.gov/24233722/
+    850–853. https://pubmed.ncbi.nlm.nih.gov/24233722/
 - Stevens, F. R., A. E. Gaughan, C. Linard, and A. J. Tatem (2015): “Disaggre-
     gating census data for population mapping using random forests with remotely-
     sensed and ancillary data,” PloS one, 10, e0107042. https://journals.plos.org/plosone/article?id=10.1371/journal.pone.
 
 
-Week 09 & 10:Production
+Week 09 & 10: Production
 
 Learning Objective:
 
@@ -450,16 +446,16 @@ Learning Objective:
 - Explore and justify your research designs.
 - Incorporate reproducible research practices and implement the techniques.
 
-Assignment:Finish capstone project! Questions that can be used as inspiration for capstone
+Assignment: Finish capstone project! Questions that can be used as inspiration for capstone
 projects can be found in the GIS Data Exercise instructions.
 
 Creating Efficient and Reproducible Code:
 
 - Re-read ESOC’s Research Production Guide
 - Matthew Gentzkow and Jesse M. Shapiro, “Code and Data for the Social Sciences: A
-    Practitioner’s Guide,”http://web.stanford.edu/~gentzkow/research/CodeAndData.pdf
+    Practitioner’s Guide”, http://web.stanford.edu/~gentzkow/research/CodeAndData.pdf
 - Garret Christensen and Edward Miguel, “Transparency, Reproducibility, and the
-    Credibility of Economics Research”,Journal of Economic Literature56(3):2018, https://www.aeaweb.org/articles?id=10.1257/jel.
+    Credibility of Economics Research”, Journal of Economic Literature56(3):2018, https://www.aeaweb.org/articles?id=10.1257/jel.
 - This was written as a STATA coding guide, but goes over best code/data management
     practices that are applicable for publications in general: Julian Reif, “Stata Coding
     Guide”, https://julianreif.com/guide/#setting-up-the-environment
@@ -477,7 +473,7 @@ as well. The common ones are MacTex for Mac and MikTex for Windows.
 - Andrew Roberts’ LATEX guide: https://www.andy-roberts.net/writing/latex
 - Overleaf has many guides on their website. You can start with “Learn LATEX in 30
     minutes”: https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes
-- There are many references package available, likenatbibandbiblatexA reference
+- There are many references package available, like natbib and biblatex. A reference
     sheet for thenatbibpackage is available here: https://gking.harvard.edu/files/natnotes2.pdf
 - Beamer is a LATEX document class for creating presentation slides. The basics are
     covered here https://www.overleaf.com/learn/latex/Beamer and also, here http://web.mit.edu/rsi/www/pdfs/beamer-tutorial.pdf
@@ -492,25 +488,23 @@ automatically. Here are some resources with code samples to get started:
     - https://lukestein.github.io/stata-latex-workflows/
     - https://medium.com/the-stata-guide/the-stata-to-latex-guide-6e7ed
 - R workflow:
-    - https://www.jakeruss.com/cheatsheets/stargazer/(Stargazeris the most
-       frequently used package for R)
-    - https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf(kableExtra)
-    - https://cran.r-project.org/web/packages/xtable/vignettes/xtableGallery.pdf(xtable)
+    - https://www.jakeruss.com/cheatsheets/stargazer/ (Stargazeris the most frequently used package for R)
+    - https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf (kableExtra)
+    - https://cran.r-project.org/web/packages/xtable/vignettes/xtableGallery.pdf (xtable)
 
 
 - Python workflow:
     - https://tug.org/tug2019/slides/slides-ziegenhagen-python.pdf
-    - https://github.com/mwburke/stargazer/blob/master/examples.ipynb(Stargazer)
+    - https://github.com/mwburke/stargazer/blob/master/examples.ipynb (Stargazer)
     - https://medium.com/@vince.shields913/econometrics-with-python-pt-4-20b7842f01df
-       (alsoStargazer)
+       (also Stargazer)
 
 
 ## Additional Resources
 
 Regressions:
 
-- Trevor Hastie, Robert Tibshirani, and Jerome Friedman,The Elements of Statisti-
-    cal Learning: Data Mining, Inference, and Prediction, https://web.stanford.edu/~hastie/ElemStatLearn/printings/ESLII_print10.pdf
+- Trevor Hastie, Robert Tibshirani, and Jerome Friedman, The Elements of Statistical Learning: Data Mining, Inference, and Prediction, https://web.stanford.edu/~hastie/ElemStatLearn/printings/ESLII_print10.pdf
 - Joshua Angrist and Jörn-Steffen Pischke, Mostly Harmless Econometrics, https://jonnyphillips.github.io/FLS6415/Class_3/Angrist%20&%20Pischke.pdf
 
 Data visualization:
@@ -546,7 +540,7 @@ https://edge.edx.org/assets/courseware/v1/fe1cb61a45c21910d8981c75298484d2/c4x/B
     - Anthony Schmidt,Causal Inference in Education, https://bookdown.org/aschmi11/causal_inf/
 - Python specific:
     - Chapters 18–20 of Kevin Sheppard, Introduction to Python for Econometrics,
-       kevinsheppard.com/teaching/python/notes/(covers LM/GLM)
+      https://kevinsheppard.com/teaching/python/notes/ (covers LM/GLM)
     - “Causal Inference for The Brave and True” is an open source causal inference
        guide in Python: https://matheusfacure.github.io/python-causality-handbook/landing-page.html
 
