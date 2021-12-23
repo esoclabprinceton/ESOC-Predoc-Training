@@ -90,7 +90,7 @@ least finishing the Introduction and Visualization in R courses:
 ### Python
 We highly recommend going through the Datacamp’s Data Scientist track
 with Python, at least finishing the introductory and visualization courses:
-- Data Camp, “Data Scientist with Python”, https://app.datacamp.com/learn/career-tracks/data-scientist-with-python?version=
+- Data Camp, “Data Scientist with Python”, https://app.datacamp.com/learn/career-tracks/data-scientist-with-python?version=5
 - NYU Data Bootcamp, https://nyudatabootcamp.gitbook.io/thebook/
 - “Introduction to Python for Science”, https://physics.nyu.edu/pine/pymanual/html/pymanMaster.html
 - Getting started with Jupyter notebooks, https://www.dataquest.io/blog/jupyter-notebook-tutorial/
