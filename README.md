@@ -7,11 +7,10 @@
 ## Introduction 
 
 This 10-week training program is designed to prepare incoming pre-doctoral research fellows
-at the [Princeton Empirical Studies of Conflict](https://esoc.princeton.edu/) (ESOC) lab with the skills needed to support
-faculty research projects within ESOC, SPIA, and associated departments. The program
-will draw from online courses for core data processing and visualization skills, research
-training materials from partnering organizations, and materials prepared by the team at
-ESOC.
+at the [Princeton Empirical Studies of Conflict](https://esoc.princeton.edu/) (ESOC) lab with the 
+skills needed to support faculty research projects within ESOC, SPIA, and associated departments. 
+The program will draw from online courses for core data processing and visualization skills, research
+training materials from partnering organizations, and materials prepared by the team at ESOC.
 
 The goal is to expose FDR fellows to all aspects of the data-driven research process. We will
 touch upon topics such as best practices for data management, research methodologies used
@@ -25,7 +24,7 @@ the answers in 10 weeks, it’s to have confidence that you can implement and kn
 to go to find answers.
 
 ## Acknowledgement
-This curriculum was developed by Alicia Chen and Samikshya Siwakoti with guidance from Jacob N.
+This curriculum was developed by Alicia Chen and Samikshya Siwakoti with guidance from Professor Jacob N.
 Shapiro and feedback from many colleagues. Gigs Banga provided invaluable beta testing and Yining Sun
 and Nilima Pisharody completed post-testing revisions. The first cohort of FDR fellow, Chris Buckley and
 Hanjatiana Nirina Randrianarisoa, provided excellent feedback and made many changes from their experience 
@@ -105,7 +104,7 @@ math and statistics concepts provided in the resources below:
 - Probability cheatsheets, http://www.wzchen.com/probability-cheatsheet/
 
 Finally, here are Princeton University resources you could explore if needed along with
-other additional resources you could review prior to the bootcamp
+other additional resources you could review prior to the bootcamp:
 
 ### University Resources:
 - Princeton Data and Statistical Services (DSS) offers data and statistical consulting:
