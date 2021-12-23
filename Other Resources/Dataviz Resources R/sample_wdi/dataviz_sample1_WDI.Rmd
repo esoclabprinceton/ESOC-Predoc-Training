@@ -26,7 +26,7 @@ library(tidyr)
 
 ## Data
 
-Vincent Arel-Bundock provides a nice package for R that makes it easy to import the World Development Indicators data. 
+Vincent Arel-Bundock provides a nice package for R. This makes it convenient to directly import the World Development Indicators data. 
 
 ```{r load data}
 #install.packages("WDI")
@@ -42,7 +42,7 @@ df <- df %>%
 
 ## world map of the share of infants vaccinated against measles
 
-Use the map package and the measles data to make a world map of the share of infants vaccinated against measles.
+Using the map package and the measles data from the World Development indicators, we can make a world map of the share of infants vaccinated against measles.
 
 ```{r}
 library("rnaturalearth")
@@ -66,7 +66,7 @@ ggplot(data = world_merged) +
   theme_map() + 
   
   theme(
-    plot.subtitle=element_text(size=10, color="grey40", lineheight=.9, face="italic"), 
+    plot.subtitle=element_text(size=9, color="grey40", lineheight=.9, face="italic"), 
     plot.caption=element_text(size=7, color="grey40"),
     legend.title = element_text(size=7, color="grey40")) 
 ```
