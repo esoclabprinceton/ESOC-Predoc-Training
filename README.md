@@ -72,51 +72,37 @@ bootcamp. Some useful resources to review are:
 
 ### STATA
 There are many outstanding set of introductory modules for STATA online:
- - Data Carpentry, “Economics Lesson with STATA”,https://datacarpentry.
-       org/stata-economics/
- - Oscar Torres-Reyna, “Getting Started in Data Analysis using STATA”,https:
-       //www.princeton.edu/~otorres/StataTutorial.pdf
- - Princeton DDS, “Online STATA tutorial”,https://www.princeton.edu/~otorres/
-    Stata/
- - Alexander C. Lembcke, “Introduction to STATA”,https://personal.lse.ac.
-    uk/lembcke/ecStata/2010/MResStataNotesOct2010PartA.pdf
- - UCLA’s Statistical Consulting group STATA page,https://stats.idre.ucla.
-    edu/stata/modules/
+ - Data Carpentry, “Economics Lesson with STATA”, https://datacarpentry.org/stata-economics/
+ - Oscar Torres-Reyna, “Getting Started in Data Analysis using STATA”, https://www.princeton.edu/~otorres/StataTutorial.pdf
+ - Princeton DDS, “Online STATA tutorial”, https://www.princeton.edu/~otorres/Stata/
+ - Alexander C. Lembcke, “Introduction to STATA”, https://personal.lse.ac.uk/lembcke/ecStata/2010/MResStataNotesOct2010PartA.pdf
+ - UCLA’s Statistical Consulting group STATA page, https://stats.idre.ucla.edu/stata/modules/
   
 ### R
 We highly recommend going through Datacamp’s Data Scientist track with R, at
 least finishing the Introduction and Visualization in R courses:
-- Data Camp, “Data Scientist with R”,https://app.datacamp.com/learn/career-tracks/
-data-scientist-with-r
-- Simon Ejdemyr, “R Tutorials: Basics,”https://sejdemyr.github.io/r-tutorials/
-basics/
-- Hadley Wickham and Garrett Grolemund’sR for Data Science: Import, Tidy,
-Transform, Visualize, and Model Data:https://r4ds.had.co.nz/
-- Getting started with R Markdown:https://www.rstudio.com/resources/webinars/
-getting-started-with-r-markdown/
+- Data Camp, “Data Scientist with R”, https://app.datacamp.com/learn/career-tracks/data-scientist-with-r
+- Simon Ejdemyr, “R Tutorials: Basics”, https://sejdemyr.github.io/r-tutorials/basics/
+- Hadley Wickham and Garrett Grolemund, "R for Data Science", https://r4ds.had.co.nz/
+- Getting started with R Markdown, https://www.rstudio.com/resources/webinars/getting-started-with-r-markdown/
 
 
 ### Python
 We highly recommend going through the Datacamp’s Data Scientist track
 with Python, at least finishing the introductory and visualization courses:
-- Data Camp, “Data Scientist with Python”https://app.datacamp.com/learn/
-career-tracks/data-scientist-with-python?version=
-- NYU Data Bootcamp,https://nyudatabootcamp.gitbook.io/thebook/
-- “Introduction to Python for Science”:https://physics.nyu.edu/pine/pymanual/
-html/pymanMaster.html
-- Getting started with Jupyter notebooks: https://www.dataquest.io/blog/
-jupyter-notebook-tutorial/
+- Data Camp, “Data Scientist with Python”, https://app.datacamp.com/learn/career-tracks/data-scientist-with-python?version=
+- NYU Data Bootcamp, https://nyudatabootcamp.gitbook.io/thebook/
+- “Introduction to Python for Science”, https://physics.nyu.edu/pine/pymanual/html/pymanMaster.html
+- Getting started with Jupyter notebooks, https://www.dataquest.io/blog/jupyter-notebook-tutorial/
 
 We will be focusing heavily on the Potential Outcomes framework for Causal inference in
 this bootcamp. As such we also recommend that prior to the start of bootcamp, you read
 the first chapter ofCausal Inference: The Mixtapeby Scott Cunningham and review basic
 math and statistics concepts provided in the resources below:
 
-- Scott Cunningham,Causal Inference: The Mixtape, Chapter 1: Introduction,https:
-    //mixtape.scunning.com/
-- Khan Academy, “Statistics and Probability”,https://www.khanacademy.org/math/
-    statistics-probability
-- Probability cheatsheets:http://www.wzchen.com/probability-cheatsheet/
+- Scott Cunningham,Causal Inference: The Mixtape, Chapter 1: Introduction, https://mixtape.scunning.com/
+- Khan Academy, “Statistics and Probability”, https://www.khanacademy.org/math/statistics-probability
+- Probability cheatsheets, http://www.wzchen.com/probability-cheatsheet/
 
 Finally, here are Princeton University resources you could explore if needed along with
 other additional resources you could review prior to the bootcamp
@@ -124,11 +110,10 @@ other additional resources you could review prior to the bootcamp
 ### University Resources:
 - Princeton Data and Statistical Services (DSS) offers data and statistical consulting:
     https://dss.princeton.edu/
-- Initiative for Data-Driven Social Science (DDSS) offers research consultations:https:
-    //ddss.princeton.edu/resources-services/our-services
+- Initiative for Data-Driven Social Science (DDSS) offers research consultations:
+   https://ddss.princeton.edu/resources-services/our-services
 - Princeton Research Computing Help Sessions are great for dealing with technical is-
-    sues that come up with using HPC clusters:https://researchcomputing.princeton.
-    edu/support/help-sessions
+    sues that come up with using HPC clusters: https://researchcomputing.princeton.edu/support/help-sessions
 
 
 ## Course Outline
@@ -151,7 +136,7 @@ research questions for two or three topics in week 3 and 4, and check data avail
 develop research project in following weeks.
 
 
-Week 01:Data Cleaning, Descriptive Statistics, and Visualizations
+Week 01: Data Cleaning, Descriptive Statistics, and Visualizations
 
 Learning Objective:
 
@@ -163,7 +148,7 @@ Learning Objective:
 - Understand how and why different visualisation tools are used in descriptive data
     analysis.
 
-Assignment:Instructions are in the “Week 1 Assignment" folder on Dropbox.
+Assignment: Instructions are in the “Week 1 Assignment" folder on Dropbox.
 
 Readings:
 
@@ -173,18 +158,13 @@ Readings:
 - STATA users: World Bank’s Development Impact Evaluation (DIME):
     - Tidying Data:https://osf.io/eznjf/
     - Data Cleaning:https://osf.io/q54uy/
-    - Data Construction (includes constructing panel data): https://osf.io/
-       k4tr6/
-- STATA users: J-PAL, “Data cleaning and management”,https://www.povertyactionlab.
-    org/resource/data-cleaning-and-management
-- “Missing-data imputation”,http://www.stat.columbia.edu/~gelman/arm/missing.
-    pdf
+    - Data Construction (includes constructing panel data): https://osf.io/k4tr6/
+- STATA users: J-PAL, “Data cleaning and management”, https://www.povertyactionlab.org/resource/data-cleaning-and-management
+- “Missing-data imputation”, http://www.stat.columbia.edu/~gelman/arm/missing.pdf
 - Jason Osborne, “Notes on the use of data transformations”,Practical Assessment,
-    Research, and Evaluation 8(8):2002,https://scholarworks.umass.edu/cgi/
-    viewcontent.cgi?article=1115&context=pare
+    Research, and Evaluation 8(8):2002, https://scholarworks.umass.edu/cgi/viewcontent.cgi?article=1115&context=pare
 - “Statistical Data Types” chapter of Andrius Buteikis, Practical Econometrics
-    and Data Science,http://web.vu.lt/mif/a.buteikis/wp-content/uploads/
-    PE_Book/1-2-data-types.html
+    and Data Science, http://web.vu.lt/mif/a.buteikis/wp-content/uploads/PE_Book/1-2-data-types.html
 
 
 (b) Descriptive analysis:
@@ -198,15 +178,13 @@ Readings:
 - J-PAL, “Data Visualization”,
     https://www.povertyactionlab.org/resource/data-visualization
 - United Nations’ guide to making data meaningful,
-    https://ec.europa.eu/eurostat/documents/64157/4374310/33-UNECE-making-data-meaningful-Part2-EN.
-    pdf/d5b954e2-b110-469b-a2b5-78aa7c12ab
+    https://ec.europa.eu/eurostat/documents/64157/4374310/33-UNECE-making-data-meaningful-Part2-EN.pdf/d5b954e2-b110-469b-a2b5-78aa7c12ab
 - R Graph Gallery (useful for getting ideas and example code in R),
     https://https://www.r-graph-gallery.com/index.html
 
 Additional Resources:
 
-- Claus O. Wilke, Fundamentals of Data Visualization, https://clauswilke.com/
-    dataviz/
+- Claus O. Wilke, Fundamentals of Data Visualization, https://clauswilke.com/dataviz/
 - Kieran Healy,Data Visualization: A Practical Introduction:https://socviz.co/
 - Additional resources for graphics
     - https://www.stata.com/support/faqs/graphics/gph/stata-graphs/
@@ -214,7 +192,7 @@ Additional Resources:
     - https://www.data-to-viz.com/
 
 
-Week 02:Probability & Regressions
+Week 02: Probability & Regressions
 
 Learning Objective:
 
@@ -227,38 +205,29 @@ Learning Objective:
 
 Assignment:
 
-- Complete Data Camp’s “Introduction to Statistics” course in Rhttps://learn.
-    datacamp.com/courses/introduction-to-statistics-in-r or Pythonhttps://
-    learn.datacamp.com/courses/introduction-to-statistics-in-python. Email the
+- Complete Data Camp’s “Introduction to Statistics” course in R, https://learn.datacamp.com/courses/introduction-to-statistics-in-r 
+   or Python, https://learn.datacamp.com/courses/introduction-to-statistics-in-python. Email the
     certificate of completion to ESOC Research Specialist copying Prof. Shapiro.
 - From Cunningham’s book: any data exercises from the assigned readings & “Probabil-
-    ity and Statistics” exercises here:https://mixtape.scunning.com/teaching-resources.
-    html
+    ity and Statistics” exercises here: https://mixtape.scunning.com/teaching-resources.html
 
 Readings:
 
-- Chapter 2 and 3 of Scott Cunningham’sCausal Inference: The Mixtape,https:
-    //mixtape.scunning.com/probability-and-regression.html
-- “Binary Choice Models”,https://faculty.utrgv.edu/diego.escobari/teaching/
-    Econ3341/Handouts/Chapter09.pdf
+- Chapter 2 and 3 of Scott Cunningham’sCausal Inference: The Mixtape, https://mixtape.scunning.com/probability-and-regression.html
+- “Binary Choice Models”,https://faculty.utrgv.edu/diego.escobari/teaching/Econ3341/Handouts/Chapter09.pdf
 - UCLA Statistical Consulting Group’s introduction to interaction termsDecomposing,
-    Probing, and Plotting Interactions in R/Stata,https://stats.idre.ucla.edu/r/
-    seminars/interactions-r/#s3c
+    Probing, and Plotting Interactions in R/Stata,https://stats.idre.ucla.edu/r/seminars/interactions-r/#s3c
 
 Additional Resources:
 
 - Probability cheatsheets:http://www.wzchen.com/probability-cheatsheet/
 
-- Khan Academy, “Statistics and Probability”,https://www.khanacademy.org/math/
-    statistics-probability
-- J-PAL MicroMasters’ Data Analysis for Social Scientists course:https://www.edx.
-    org/course/data-analysis-for-social-scientists
-- Konrad Menzel’s Introduction to Statistical Methods in Economics course:https://
-    ocw.mit.edu/courses/economics/14-30-introduction-to-statistical-methods-in-economics-spring-2009/
-    index.htm
+- Khan Academy, “Statistics and Probability”,https://www.khanacademy.org/math/statistics-probability
+- J-PAL MicroMasters’ Data Analysis for Social Scientists course: https://www.edx.org/course/data-analysis-for-social-scientists
+- Konrad Menzel’s Introduction to Statistical Methods in Economics course: https://ocw.mit.edu/courses/economics/14-30-introduction-to-statistical-methods-in-economics-spring-2009/index.htm
 
 
-Week 03:Causal Inference
+Week 03: Causal Inference
 
 Learning Objective:
 
@@ -269,24 +238,20 @@ Learning Objective:
 - Think about potential research designs to improve causal inference in your capstone
     project.
 
-Assignment:From Cunningham’s book: any data exercises from the assigned readings & the
+Assignment: From Cunningham’s book: any data exercises from the assigned readings & the
 chapter-specific exercises from: https://mixtape.scunning.com/potential-outcomes.
 html
 
-Readings:Chapters 4 and 5 of Scott Cunningham’sCausal Inference: The Mixtape,https:
-//mixtape.scunning.com/potential-outcomes.html
+Readings: Chapters 4 and 5 of Scott Cunningham’s Causal Inference: The Mixtape, https://mixtape.scunning.com/potential-outcomes.html
 
 Additional Resources:
 
 - Josh Angrists and Victor Chernozhukov, “Applied Econometrics: Mostly Harmless
-    Big Data” (companion course toMostly Harmless Econometric):https://ocw.mit.
-    edu/courses/economics/14-387-applied-econometrics-mostly-harmless-big-data-fall-2014/
-    index.htm
-- MIT 14.771/ Harvard 2390b “Empirical Methods” handout: [http://web.mit.edu/](http://web.mit.edu/)
-    14.771/www/emp_handout.pdf
+    Big Data” (companion course to Mostly Harmless Econometrics): https://ocw.mit.edu/courses/economics/14-387-applied-econometrics-mostly-harmless-big-data-fall-2014/
+- MIT 14.771/ Harvard 2390b “Empirical Methods” handout: http://web.mit.edu/14.771/www/emp_handout.pdf
 
 
-Week 04:Operationalizing Regressions pt.
+Week 04: Operationalizing Regressions pt.
 
 Learning Objective:
 
@@ -296,15 +261,14 @@ Learning Objective:
     project.
 
 Assignment:From Cunningham’s book: any data exercises from the assigned readings &
-any other exercises from:https://mixtape.scunning.com/teaching-resources.html
+any other exercises from: https://mixtape.scunning.com/teaching-resources.html
 
 Readings:
 
-- Chapters 6 and 7 of Scott Cunningham’sCausal Inference: The Mixtape,https:
-    //mixtape.scunning.com/regression-discontinuity.html
+- Chapters 6 and 7 of Scott Cunningham’sCausal Inference: The Mixtape, https://mixtape.scunning.com/regression-discontinuity.html
 
 
-Week 05:Operationalizing Regressions pt.
+Week 05: Operationalizing Regressions pt.
 
 Learning Objective:
 
@@ -314,18 +278,16 @@ Learning Objective:
 - Think about potential research designs to improve causal inference in your capstone
     project.
 
-Assignment:From Cunningham’s book: any data exercises from the assigned readings any
-other exercises from:https://mixtape.scunning.com/teaching-resources.html
+Assignment: From Cunningham’s book: any data exercises from the assigned readings any
+other exercises from: https://mixtape.scunning.com/teaching-resources.html
 
 Readings:
 
-- Chapters 8 and 9 of Scott Cunningham’sCausal Inference: The Mixtape,https:
-    //mixtape.scunning.com/panel-data.html
-- Josh Blumenstock’s lecture notes on fixed effects models:http://www.jblumenstock.
-    com/files/courses/econ174/FEModels.pdf
+- Chapters 8 and 9 of Scott Cunningham’sCausal Inference: The Mixtape, https://mixtape.scunning.com/panel-data.html
+- Josh Blumenstock’s lecture notes on fixed effects models: http://www.jblumenstock.com/files/courses/econ174/FEModels.pdf
 
 
-Week 06:Operationalizing Regressions pt.3 & Panel Data Exercise #
+Week 06: Operationalizing Regressions pt.3 & Panel Data Exercise #2
 
 Learning Objective:
 
@@ -338,26 +300,22 @@ Learning Objective:
 Readings:
 
 - On non-standard errors:
-    - Summary of Athey, Abadie, Imbens and Wooldridge (2017): https://blogs.
-       worldbank.org/impactevaluations/when-should-you-cluster-standard-errors-new-wisdom-econometrics-oracle
-    - Nonstandard errors in code:https://lost-stats.github.io/Model_Estimation/
-       Statistical_Inference/Nonstandard_Errors/nonstandard_errors.html
-- Intro to power analysis:https://stats.idre.ucla.edu/other/mult-pkg/seminars/
-    intro-power/
-- Thomas Brambor, William Roberts Clark and Matt Golder, “Understanding Interac-
-    tion Models: Improving Empirical Analyses”,Political Analysis14(1):2006.
+    - Summary of Athey, Abadie, Imbens and Wooldridge (2017): https://blogs.worldbank.org/impactevaluations/when-should-you-cluster-standard-errors-new-wisdom-econometrics-oracle
+    - Nonstandard errors in code: https://lost-stats.github.io/Model_Estimation/Statistical_Inference/Nonstandard_Errors/nonstandard_errors.html
+- Intro to power analysis: https://stats.idre.ucla.edu/other/mult-pkg/seminars/intro-power/
+- Thomas Brambor, William Roberts Clark and Matt Golder, “Understanding Interaction Models: Improving Empirical Analyses”,Political Analysis14(1):2006.
 - Chunrong Ai and Edward C. Norton, “Interaction terms in logit and probit models”,
     Economics Letters80(1): 2003.
 
-Assignment:Instructions for Panel data exercise 2 are in the “Panel Data Exercise” folder on
+Assignment: Instructions for Panel data exercise 2 are in the “Panel Data Exercise” folder on
 Dropbox. This exercise will implement many of the tools and methods we covered in earlier
 weeks. You should feel free to review those notes as you complete this data challenge, in
 particular the assigned readings for the empirical methods and operationalizing regressions
 weeks. As you do the exercise, remember to think about substantive effects, not just
-statistical significance
+statistical significance.
 
 
-Week 07:Text-as-Data & Panel Data Exercise #
+Week 07: Text-as-Data & Panel Data Exercise #1
 
 Learning Objective:
 
@@ -384,22 +342,18 @@ Readings:
 - Data Camp skill track, “Natural Language Processing in Python”:
     - We recommend completing the courses Introduction to NLP in Python, Senti-
        ment Analysis in Python, and Advanced NLP with spaCy. Additional courses
-       in skill track are optional. https://app.datacamp.com/learn/skill-tracks/
-       natural-language-processing-in-python
-- Learningregex:https://regexone.com/
-- regexcheatsheet:https://github.com/justingrimmer/tad_19/blob/master/regex.
-    pdf
+       in skill track are optional. https://app.datacamp.com/learn/skill-tracks/natural-language-processing-in-python
+- Learningregex: https://regexone.com/
+- regexcheatsheet: https://github.com/justingrimmer/tad_19/blob/master/regex.pdf
 
 
 - David M. Blei, “Surveying a suite of algorithms that offer a solution to managing
-    large document archives,”Communications of the ACM55(4):2012,http://www.cs.
-    columbia.edu/~blei/papers/Blei2012.pdf
+    large document archives,”Communications of the ACM55(4):2012, http://www.cs.columbia.edu/~blei/papers/Blei2012.pdf
 
 Additional NLP Resources:
 
 - Chapter 17 (Collecting Data from the Web) of Rochelle Terman’s PLSC 31101: Com-
-    putational Tools for Social Science course notes: https://plsc-31101.github.io/
-    course/collecting-data-from-the-web.html#web-apis(uses R)
+    putational Tools for Social Science course notes: https://plsc-31101.github.io/course/collecting-data-from-the-web.html#web-apis(uses R)
 - Ryan Mitchell,Web Scraping with Python: Collecting Data from the Modern Web.
 
 Robustness checks Resources:
@@ -447,54 +401,43 @@ Readings:
 
 (a) Introduction to GIS basics in R:
 
-- Chapter 1 and 2 of Manuel Gimond’sIntro to GIS and Spatial Analysishttps:
-    //mgimond.github.io/Spatial/introGIS.html
-- Chapters 2–4 of Robert J. Hijmans’ “Spatial Data in R”:https://rspatial.
-    org/spatial/Spatialdata.pdf
-- GIS data types cheatsheet:https://geol260.academic.wlu.edu/course-notes/
-    introduction-and-data-types/3-types-of-data/
-- Geospatial data formats:https://www.lib.ncsu.edu/gis/formats
+- Chapter 1 and 2 of Manuel Gimond’sIntro to GIS and Spatial Analysis, https://mgimond.github.io/Spatial/introGIS.html
+- Chapters 2–4 of Robert J. Hijmans’ “Spatial Data in R”, https://rspatial.org/spatial/Spatialdata.pdf
+- GIS data types cheatsheet: https://geol260.academic.wlu.edu/course-notes/introduction-and-data-types/3-types-of-data/
+- Geospatial data formats: https://www.lib.ncsu.edu/gis/formats
 
 (b) GIS in R:
 
-- Complete Datacamp’s Spatial Analysis with sf and raster in R.https://app.
-    datacamp.com/learn/courses/spatial-analysis-with-sf-and-raster-in-r
-- Nick Eubank’s “GIS in R” has more advanced tutorials for using R to han-
-    dle spatial data, including cheatsheets of common R commands:https://www.
-    nickeubank.com/gis-in-r/
+- Complete Datacamp’s Spatial Analysis with sf and raster in R. https://app.datacamp.com/learn/courses/spatial-analysis-with-sf-and-raster-in-r
+- Nick Eubank’s “GIS in R” has more advanced tutorials for using R to handle spatial data, including cheatsheets of common R commands: https://www.nickeubank.com/gis-in-r/
 
 
 - For Tutorial 4: Geo-Coding and Principles of Web-APIs, please register your
-    API key on Google Maps Platform. Google offers a 90-day free trial.https:
-    //www.rdocumentation.org/packages/ggmap/versions/3.0.0/topics/register_
+    API key on Google Maps Platform. Google offers a 90-day free trial. https://www.rdocumentation.org/packages/ggmap/versions/3.0.0/topics/register_
     google
 - An application of spatial analysis: Simon Ejdemyr, “Segregation Measures in R,”
 https://sejdemyr.github.io/r-tutorials/segregation/
-- Creating a Point Map From a CSV File in R by Michael Minnhttps://michaelminn.
-net/tutorials/r-csv-point-map/index.html
+- Creating a Point Map From a CSV File in R by Michael Minn, https://michaelminn.net/tutorials/r-csv-point-map/index.html
 - Li, X., Zhou, Y., Zhao, M. et al. A harmonized global nighttime light dataset
-1992–2018. Sci Data 7, 168 (2020).https://doi.org/10.1038/s41597-020-0510-y
+1992–2018. Sci Data 7, 168 (2020). https://doi.org/10.1038/s41597-020-0510-y
 
 (c) Additional GIS resources:
 
 - Fick, S. E. and R. J. Hijmans (2017): “WorldClim 2: new 1-km spatial resolu-
     tion climate surfaces for global land areas,” International Journal of Climatol-
-    ogy, 37, 4302–4315.https://rmets.onlinelibrary.wiley.com/doi/full/10.
-    1002/joc.
+    ogy, 37, 4302–4315.https://rmets.onlinelibrary.wiley.com/doi/full/10.1002/joc.
 - Goldblatt, R., M. F. Stuhlmacher, B. Tellman, N. Clinton, G. Hanson, M.
     Georgescu, C. Wang, F. Serrano-Candela, A. Khandelwal, W.-H. Cheng, and R.
     C. Balling Jr (2018): “Using Landsat and nighttime lights for supervised pixel-
     based image classification of urban land cover,” Remote Sensing of Environment,
-    205.https://gps.ucsd.edu/_files/faculty/hanson/hanson_publications_
-    landsat.pdf
+    205.https://gps.ucsd.edu/_files/faculty/hanson/hanson_publications_landsat.pdf
 - Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.
     Tyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, et al. (2013):
     “High-resolution global maps of 21st-century forest cover change,” Science, 342,
     850–853.https://pubmed.ncbi.nlm.nih.gov/24233722/
 - Stevens, F. R., A. E. Gaughan, C. Linard, and A. J. Tatem (2015): “Disaggre-
     gating census data for population mapping using random forests with remotely-
-    sensed and ancillary data,” PloS one, 10, e0107042. https://journals.plos.
-    org/plosone/article?id=10.1371/journal.pone.
+    sensed and ancillary data,” PloS one, 10, e0107042. https://journals.plos.org/plosone/article?id=10.1371/journal.pone.
 
 
 Week 09 & 10:Production
@@ -514,15 +457,13 @@ Creating Efficient and Reproducible Code:
 
 - Re-read ESOC’s Research Production Guide
 - Matthew Gentzkow and Jesse M. Shapiro, “Code and Data for the Social Sciences: A
-    Practitioner’s Guide,”http://web.stanford.edu/~gentzkow/research/CodeAndData.
-    pdf
+    Practitioner’s Guide,”http://web.stanford.edu/~gentzkow/research/CodeAndData.pdf
 - Garret Christensen and Edward Miguel, “Transparency, Reproducibility, and the
-    Credibility of Economics Research”,Journal of Economic Literature56(3):2018,https:
-    //www.aeaweb.org/articles?id=10.1257/jel.
+    Credibility of Economics Research”,Journal of Economic Literature56(3):2018, https://www.aeaweb.org/articles?id=10.1257/jel.
 - This was written as a STATA coding guide, but goes over best code/data management
     practices that are applicable for publications in general: Julian Reif, “Stata Coding
-    Guide”,https://julianreif.com/guide/#setting-up-the-environment
-- World Bank DIME, Research Standards,https://github.com/worldbank/dime-standards
+    Guide”, https://julianreif.com/guide/#setting-up-the-environment
+- World Bank DIME, Research Standards, https://github.com/worldbank/dime-standards
 
 
 Working with LATEX:
@@ -532,16 +473,14 @@ Docs but with a LATEX editor). Though you will likely use Overleaf for most of y
 a FDR fellow, you may also want to consider installing a TEX distribution on your computer
 as well. The common ones are MacTex for Mac and MikTex for Windows.
 
-- A quick guide to :http://users.dickinson.edu/~richesod/latex/latexcheatsheet.
-    pdf
-- Andrew Roberts’ LATEX guide:https://www.andy-roberts.net/writing/latex
+- A quick guide to Latex: http://users.dickinson.edu/~richesod/latex/latexcheatsheet.pdf
+- Andrew Roberts’ LATEX guide: https://www.andy-roberts.net/writing/latex
 - Overleaf has many guides on their website. You can start with “Learn LATEX in 30
-    minutes”:https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes
+    minutes”: https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes
 - There are many references package available, likenatbibandbiblatexA reference
-    sheet for thenatbibpackage is available here:https://gking.harvard.edu/files/
-    natnotes2.pdf
+    sheet for thenatbibpackage is available here: https://gking.harvard.edu/files/natnotes2.pdf
 - Beamer is a LATEX document class for creating presentation slides. The basics are
-    covered here and here
+    covered here https://www.overleaf.com/learn/latex/Beamer and also, here http://web.mit.edu/rsi/www/pdfs/beamer-tutorial.pdf
 
 One of the most important skills to learn is to automatically convert your code results
 into nicely-formatted tables for publication. You should start by understanding how the
@@ -556,8 +495,7 @@ automatically. Here are some resources with code samples to get started:
     - https://www.jakeruss.com/cheatsheets/stargazer/(Stargazeris the most
        frequently used package for R)
     - https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf(kableExtra)
-    - https://cran.r-project.org/web/packages/xtable/vignettes/xtableGallery.
-       pdf(xtable)
+    - https://cran.r-project.org/web/packages/xtable/vignettes/xtableGallery.pdf(xtable)
 
 
 - Python workflow:
@@ -572,28 +510,21 @@ automatically. Here are some resources with code samples to get started:
 Regressions:
 
 - Trevor Hastie, Robert Tibshirani, and Jerome Friedman,The Elements of Statisti-
-    cal Learning: Data Mining, Inference, and Prediction,https://web.stanford.edu/
-    ~hastie/ElemStatLearn/printings/ESLII_print10.pdf
-- Joshua Angrist and Jörn-Steffen Pischke,Mostly Harmless Econometrics,https://
-    jonnyphillips.github.io/FLS6415/Class_3/Angrist%20&%20Pischke.pdf
+    cal Learning: Data Mining, Inference, and Prediction, https://web.stanford.edu/~hastie/ElemStatLearn/printings/ESLII_print10.pdf
+- Joshua Angrist and Jörn-Steffen Pischke, Mostly Harmless Econometrics, https://jonnyphillips.github.io/FLS6415/Class_3/Angrist%20&%20Pischke.pdf
 
 Data visualization:
 
-- Andrew Heiss’ Data Visualization class (using R):https://datavizm20.classes.
-    andrewheiss.com/
-- Descriptive Statistics and Visualizing Data in STATA:http://courses.washington.
-    edu/b517/Misc/Disc2.pdf
-- “Visualization” chapter of Jake VanderPlas,Python Data Science Handbook,https://
-    jakevdp.github.io/PythonDataScienceHandbook/04.00-introduction-to-matplotlib.
-    html
+- Andrew Heiss’ Data Visualization class (using R): https://datavizm20.classes.andrewheiss.com/
+- Descriptive Statistics and Visualizing Data in STATA: http://courses.washington.edu/b517/Misc/Disc2.pdf
+- “Visualization” chapter of Jake VanderPlas,Python Data Science Handbook, https://jakevdp.github.io/PythonDataScienceHandbook/04.00-introduction-to-matplotlib.html
 
 Implementing empirical models in code:
 
 - Princeton DSS has slides on how to implement all types of models in R and STATA:
     https://dss.princeton.edu/training/
 - Model Estimation chapter of the Library of Statistical Techniques (LOST) has R and
-    STATA code as well: https://lost-stats.github.io/Model_Estimation/Model_
-    Estimation.html
+    STATA code as well: https://lost-stats.github.io/Model_Estimation/Model_Estimation.html
 - STATA specific:
     - Xiao Chen, Philip B. Ender, Michael Mitchell and Christine Wells,Regression
        with Stata,https://stats.idre.ucla.edu/stata/webbooks/reg/
@@ -603,26 +534,21 @@ Implementing empirical models in code:
 
 
 
-Diff-in-diff designs:https://edge.edx.org/assets/courseware/v1/b8d2a8030b7aa5f2762a464bf7f8b0c7/
-c4x/BerkeleyX/CEGA101AIE/asset/Module_2.5_Difference_in_Differences.
-pdf
-Regression discontinuity:https://edge.edx.org/assets/courseware/v1/
-fe1cb61a45c21910d8981c75298484d2/c4x/BerkeleyX/CEGA101AIE/asset/
-Module_2.4_Regression_Discontinuity.pdf
+Diff-in-diff designs: https://edge.edx.org/assets/courseware/v1/b8d2a8030b7aa5f2762a464bf7f8b0c7/c4x/BerkeleyX/CEGA101AIE/asset/Module_2.5_Difference_in_Differences.pdf
+
+Regression discontinuity:
+https://edge.edx.org/assets/courseware/v1/fe1cb61a45c21910d8981c75298484d2/c4x/BerkeleyX/CEGA101AIE/asset/Module_2.4_Regression_Discontinuity.pdf
 
 - R specific:
     - Christoph Hanck, Martin Arnold, Alexander Gerber, and Martin Schmelzer,In-
-       troduction to Econometrics with R,https://www.econometrics-with-r.org/
-    - Constantin Colonescu,Principles of Econometrics with R,https://bookdown.
-       org/ccolonescu/RPoE4/
-    - Anthony Schmidt,Causal Inference in Education,https://bookdown.org/aschmi11/
-       causal_inf/
+       troduction to Econometrics with R, https://www.econometrics-with-r.org/
+    - Constantin Colonescu,Principles of Econometrics with R, https://bookdown.org/ccolonescu/RPoE4/
+    - Anthony Schmidt,Causal Inference in Education, https://bookdown.org/aschmi11/causal_inf/
 - Python specific:
     - Chapters 18–20 of Kevin Sheppard,Introduction to Python for Econometrics,
        kevinsheppard.com/teaching/python/notes/(covers LM/GLM)
     - “Causal Inference for The Brave and True” is an open source causal inference
-       guide in Python:https://matheusfacure.github.io/python-causality-handbook/
-       landing-page.html
+       guide in Python:https://matheusfacure.github.io/python-causality-handbook/landing-page.html
 
 This work is licensed under a Creative Commons Attribution 4.0 International License.
 [https://creativecommons.org/licenses/by/4.0/]. 
