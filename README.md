@@ -9,13 +9,13 @@
 This 10-week training program is designed to prepare incoming pre-doctoral research fellows
 at the [Princeton Empirical Studies of Conflict](https://esoc.princeton.edu/) (ESOC) lab with the 
 skills needed to support faculty research projects within ESOC, SPIA, and associated departments. 
-The program will draw from online courses for core data processing and visualization skills, research
+The program draws from online courses for core data processing and visualization skills, research
 training materials from partnering organizations, and materials prepared by the team at ESOC.
 
-The goal is to expose FDR fellows to all aspects of the data-driven research process. We will
+The goal is to expose FDR fellows to all aspects of the data-driven research process. We 
 touch upon topics such as best practices for data management, research methodologies used
 in the social sciences, and production-related skills like optimizing code for publication and
-working with LATEX. Ultimately, these skills will provide fellows with a strong analytical
+working with LATEX. Ultimately, these skills provide fellows with a strong analytical
 foundation for careers in public service and future PhD study in Political Science, Economics
 and related fields.
 
